@@ -7,7 +7,7 @@ PrintScreen::
 Return
 
 ;win+j open downloads
-#j::Run C:\Users\xyz\Downloads
+#j::Run %USERPROFILE%\Downloads
 
 #LShift::
 If GetKeyState("CapsLock", "T") = 1
