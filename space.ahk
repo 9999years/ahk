@@ -1,4 +1,5 @@
 SendMode, Input ; Recommended for new scripts due to its superior speed and reliability. SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+
 #SingleInstance force
 
 ;printscreen run gyazo
@@ -28,5 +29,6 @@ RAlt & '::Send {U+201D} ;close double quotes
 RAlt & [::Send {U+2018} ;open single quote
 RAlt & ]::Send {U+2019} ;close single quote
 
-F15 & r::Send {U+00AE} ; Registered trademark
-F15 & t::Send {U+2122} ; TM
+RAlt & r::Send {U+00AE} ; Registered trademark
+RAlt & t::Send {U+2122} ; TM
+
