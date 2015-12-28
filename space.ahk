@@ -13,7 +13,7 @@ Return
 #LShift::
 If GetKeyState("CapsLock", "T") = 1
     SetCapsLockState, AlwaysOff
-Else 
+Else
     SetCapsLockState, AlwaysOn
 Return
 
@@ -31,4 +31,3 @@ RAlt & ]::Send {U+2019} ;close single quote
 
 RAlt & r::Send {U+00AE} ; Registered trademark
 RAlt & t::Send {U+2122} ; TM
-
