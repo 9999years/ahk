@@ -11,7 +11,7 @@ Return
 #j::Run %USERPROFILE%\Downloads
 
 ;win+f open powershell
-;#f::Send %c%;Run powershell -noexit -command "cd \"%c%\""
+#f::Send ^l powershell {enter}
 
 Send !d
         ControlGetText Path , Edit1
