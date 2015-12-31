@@ -1,0 +1,798 @@
+<title>HoeKey</title>
+
+<style>
+td.d { background-color:black; color: white; }
+td { background-color:silver; color: black; }
+
+pre {
+	font-family: Courier New, Courier, mono;
+	background-color: #F7F7F7;
+	padding: 1px;
+}
+
+</style>
+
+<h2>HoeKey Quick and dirty:</h2>
+
+HoeKey lets you assign most keys on your keyboard to many different actions. You set this up in a config file.<br>
+To get started, run HoeKey, push <b>Win-Q</b>, click <b>Edit Config</b>.<br>
+<br>This file is formatted like:<br>
+
+Key=Function|Option1|Option2|Option3|Option4|Option5 ; Description<br><br>
+
+Key can be any/all of:<br>
+~ = Windows key<br>
+_ = Shift key<br>
+^ = Control key<br>
+@ = Alt key<br>
+<br>
+And then a keyboard key, like W (~W = windows-w, ^_G = ctrl-shift-g), or a
+ <a href=#keys>special</a>/<a href=#multimediakeys>multimedia</a> key, like F1 or Pause<br>
+<br>
+
+<i>Function</i> can be one of the following:<br>
+<b>Create new window:</b> <a href=#Run>Run</a>, <a href=#RunDialog>RunDialog</a></a>, <a href=#MsgBox>MsgBox</a>,
+ <a href=#Input>Input</a>, <a href=#Apps>Apps</a><br>
+<b>Existing window:</b> <a href=#Move>Move</a>, <a href=#MoveRel<>MoveRel</a>, <a href=#Center>Center</a>, <a href=#AlwaysOnTop>AlwaysOnTop</a>,
+ <a href=#Hide>Hide</a>, <a href=#Unhide>Unhide</a>, <a href=#UnhideAll>UnhideAll</a>, <a href=#Show>Show</a>,
+ <a href=#Editify>Editify</a>, <a href=#Kill>Kill</a><br>
+<b>Do stuff:</b> <a href=#Keys>Keys</a>, <a href=#Volume>Volume</a>, <a href=#Wait>Wait</a>,
+ <a href=#Eject>Eject</a>, <a href=#RunAlias>RunAlias</a><br>
+<b>Nerdy programmer:</b> <a href=#Msg>Msg</a>, <a href=#FocusMsg>FocusMsg</a><br>
+<b>HoeKey:</b> <a href=#Config>Config</a>, <a href=#TrayIcon>TrayIcon</a>, <a href=#HotKeys>HotKeys</a>,
+ <a href=#Reload>Reload</a>, <a href=#Rem>Rem</a><br>
+
+<br>
+There are also <a href=#special>Special commands</a>, <a href=#RunAlias>Aliases</a>  <a href=#multimedia>multimedia</a> messages.<br>
+
+<h3>Create new window:</h3>
+
+<ul>
+	<a name=Run>
+	<li><b>Run</b>|Program Name|State|Wait|StartIn</li>
+	<ul>
+		<li>Run a program.<br>
+		%s will be replaced with current selection.<br>
+		%S will be replaced with current selection (encoded for use in running URL's)<br>
+		%c will be replaced with current directory, %d with current drive<br>
+		%i = hoekey ini file<br>
+		%t = current window title, %l = current window class<br>
+		%u = results of last Input function<br>
+		%u = results of last Input function (encoded for use in running URL's)<br>
+		%f = current date<br>
+		%g = current time (no seconds)<br>
+		%h = current time (seconds)<br>
+		%% for a %<br>
+		\r = carriage return (do \r\n in msgbox for a newline)<br>
+		\n = newline<br>
+		\t = tab<br>
+		\\ for a \<br>
+		Also environment strings will be expanded, e.g. %temp%, %path%, %os%<br>
+		State can be 0 to start app normal, 2 to start minimized, 3 to start maximized<br>
+		Wait can be 1 to wait for exit before continuing (stacked commands)<br>
+		Wait can be 2 to reactive previous run program<br>
+		StartIn is the directory to start in, % stuff applies here too
+<pre>
+~K=Run|calc.exe
+~N=Run|notepad.exe|3 ; start notepad maximized
+</pre>
+		</li>
+	</ul>
+
+	<a name=RunDialog>
+	<li><b>RunDialog</b>|StartIn</li><ul><li>Display Windows "Run" Dialog<br>
+	StartIn is the directory to start in, % stuff applies here too
+<pre>
+_^R=RunDialog
+_^R=RunDialog|c:\
+</pre>
+		</li>
+	</ul>	
+
+	<a name=MsgBox>
+	<li><b>MsgBox</b>|Text|Title|Timeout</li><ul><li>Display message on screen<br>
+Note that the same %s,%c,%d,%i,%t,%l,%u stuff from the <a href=#Run>Run</a> command applies
+<pre>
+Startup=MsgBox|HoeKey loaded (ya hoe)
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Input>
+	<li><b>Input</b>|Text|Title|Timeout|Default</li><ul><li>Get quick user input<br>
+The results of the user input goes into the variable %u, for later usage by Run, or MsgBox, or whatever.<br>
+Note that the same %s,%c,%d,%i,%t,%l,%u stuff from the <a href=#Run>Run</a> command applies
+<pre>
+; Do a quick Google I'm Feeling Lucky search based on input:
+~I=Input|Google search:|Moz tacular||%u
+=Run|"C:\good\MozillaFirebird\MozillaFirebird.exe" "http://www.google.com/search?q=%u&btnI=I'm+Feeling+Lucky"
+
+; Show Google results, based on last input:
+~_I=Run|"C:\good\MozillaFirebird\MozillaFirebird.exe" "http://www.google.com/search?q=%u"         ; google lucky
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Apps>
+	<li><b>Apps</b>|0=Hidden, 1=All</li><ul><li>Show list of apps hidden by HoeKey, or all windows<br>
+Double click to show window.
+<pre>
+~F4=Apps ; show apps hidden by hoekey Hide command
+~_F4=Apps|1 ; show all apps
+</pre>
+		</li>
+	</ul>	
+
+</ul>
+
+</ul>
+
+<h3>Existing window:</h3>
+<ul>
+
+	<a name=Move>
+	<li><b>Move</b>|WindowClass|left|top|width|height</li>
+	<ul>
+		<li>Move current or selected window.<br>
+		Negative left moves window relative to right side of screen, etc.<br>
+		Negative width resizes relative to screen.
+<pre>
+~_V=Move||512|1|512|700 ; Move current window to right side of 1024x768 screen
+~8=Move                 ; Center current window
+</pre>
+		</li>
+	</ul>
+
+	<a name=MoveRel>
+	<li><b>MoveRel</b>|WindowClass|left|top|width|height</li>
+	<ul>
+		<li>Move current or selected window relatively.
+<pre>
+~^V=MoveRel||50 ; Move current window right 50 pixels
+~^8=MoveRel||||50|-50 ; Make current window 50 pixels wider and 50 pixels shorter
+</pre>
+		</li>
+	</ul>
+
+	<a name=Center>
+	<li><b>Center</b>|WindowClass|NoWidthOrNoHeight</li>
+	<ul>
+		<li>Center current or selected window.
+<pre>
+~^V=Center ; center current window vertically and horizontally
+~^8=Center||1 ; center current window only vertically
+~^9=Center||2 ; center current window only horizontally
+</pre>
+		</li>
+	</ul>
+
+	<a name=AlwaysOnTop>
+	<li><b>AlwaysOnTop</b>|WindowClass</li>
+	<ul>
+		<li>Set app to always be on top<br>
+		Empty WindowClass for current window
+<pre>
+~8=AlwaysOnTop
+</pre>
+		</li>
+	</ul>
+
+	<a name=Transparency>
+	<li><b>Transparency</b>|WindowClass|Level (0-100)</li>
+	<ul>
+		<li>Toggle transparency of window where 10 is 10% visible<br>
+		Empty WindowClass for current window, empty level for 70% transparency
+<pre>
+~4=Transparency ; make current window 70% visible
+~4=Transparency|Notepad|30 ; make notepad 30% visible (mostly transparent)
+</pre>
+		</li>
+	</ul>
+
+	<a name=Hide>
+	<li><b>Hide</b>|WindowClass|1=HideToTray,2=HideFromEverything</li>
+	<ul>
+		<li>Hide current or specified application, add to hidden stack.  Optionally show in systray.  2=Do not add application to stack (stays hidden even after quitting HoeKey)<br>
+<pre>
+~35=Hide
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Unhide>
+	<li><b>Unhide</b>|WindowClass</li>
+	<ul>
+		<li>Show the last application hidden (from hidden stack)<br>
+<pre>
+~36=Unhide
+</pre>
+		</li>
+	</ul>	
+
+	<a name=UnhideAll>
+	<li><b>UnhideAll</b></li><ul><li>Show all applications that were hidden by HoeKey<br>
+<pre>
+~H=UnhideAll
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Show>
+	<li><b>Show</b>|WindowClass</li>
+	<ul>
+		<li>Show specified application <br>
+<pre>
+~S=Show|Winamp v1.x
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Editify>
+	<li><b>Editify</b></li><ul><li>Show text from current window in a way that you can copy to clipboard
+<pre>
+~Y=Editify
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Kill>
+	<li><b>Kill</b>|WindowClass</li>
+	<ul>
+		<li>Kill current or specified application
+<pre>
+~K=Kill
+</pre>
+		</li>
+	</ul>	
+
+</ul>
+
+<h3>Do stuff:</h3>
+<ul>
+
+	<a name=Keys>
+	<li><b>Keys</b>|Keystrokes|Delay</li><ul><li>Playback keystrokes.  Optional Delay in milliseconds<br>
+\s:shift down<br>
+\S:shift up<br>
+\c:control down<br>
+\C:control up<br>
+\a:alt down<br>
+\A:alt up<br>
+\w:win down<br>
+\W:win up<br>
+<br>
+\z:right mouse button/context menu<br>
+\n:return<br>
+\t:tab<br>
+\l:left<br>
+\k:right<br>
+\u:up<br>
+\d:down<br>
+\h:home<br>
+\e:end<br>
+\i:insert<br>
+\x:delete<br>
+\b:backspace<br>
+\p:escape<br>
+%s will be replaced with current selection.<br>
+%c will be replaced with current directory, %d with current drive<br>
+%i = hoekey ini file<br>
+%t = current window title, %l = current window class<br>
+%u = results of last Input function<br>
+%f = current date<br>
+%g = current time (no seconds)<br>
+%h = current time (seconds)<br>
+%% for a %<br>
+Also environment strings will be expanded, e.g. %temp%, %path%, %os%
+<pre>
+^~K=Keys|\x\d\h\h
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Volume>
+	<li><b>Volume</b>|Volume (0-100)</li><ul><li>Set master volume to absolute value, 0-100%
+<pre>
+_~7=Volume||70
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Wait>
+	<li><b>Wait</b>|Milliseconds</li>
+	<ul>
+		<li>wait (for stacking commands)
+<pre>
+~W=Run|c:\program files\Winamp\winamp.exe
+=Wait|1000 ; wait a second
+=Msg|Winamp v1.x|273|40045 ; play
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Eject>
+	<li><b>Eject</b>|Drive|Toggle=0, Open=1, Close=2</li>
+	<ul>
+		<li>Eject/Close cd-drive.  note it toggles open/close based on best known status which is not reliable
+<pre>
+~J=Eject	; eject first CD drive
+~K=Eject|f: ; eject f: drive
+</pre>
+		</li>
+	</ul>	
+
+	<a name=RunAlias>
+	<li><b>RunAlias</b>|Alias</li>
+	<ul>
+		<li>Run a previously defined alias<br/>
+To use aliases, first define them:
+<pre>
+*Screensaver_Start=Msg|0|274|61760	; start screensaver
+*np=Run|Notepad.exe					; run notepad
+</pre>
+Next, either use them directly in your config file:
+<pre>
+~N=np
+~f3=Screensaver_Start
+</pre>
+Or, you can choose from them by typing into an inputbox:
+<pre>
+~T=Input|Enter alias to run:|||%u
+=RunAlias|%u
+</pre>
+
+		</li>
+	</ul>	
+
+</ul>
+<h3>Nerdy programmer:</h3>
+<ul>
+	<a name=Msg>
+	<li><b>Msg</b>|WindowClass|Message|wParam|lParam
+	<ul>
+		<li>Send message to application<br>
+		Empty WindowClass for current window
+<pre>
+~C=Msg|Winamp v1.x|273|40046 ; pause winamp
+~33=Msg||274|61488 ; pgup = maximize current window
+~34=Msg||274|61472 ; pgdn = minimize current window
+</pre>
+		</li>
+	</ul>
+
+	<a name=FocusMsg>
+	<li><b>FocusMsg</b>|WindowClass|Message|wParam|lParam</li>
+	<ul>
+		<li>Focus application, then send message to it
+<pre>
+~A=FocusMsg|Winamp v1.x|273|40188 ; about current winamp song
+~W=FocusMsg|Winamp v1.x ; set focus to winamp
+</pre>
+		</li>
+	</ul>
+</ul>
+<h3>HoeKey:</h3>
+<ul>
+	<a name=Config>
+	<li><b>Config</b></li><ul><li>Bring up HoeKey configure screen
+<pre>
+~Q=Config
+</pre>
+		</li>
+	</ul>	
+
+	<a name=TrayIcon>
+	<li><b>TrayIcon</b>|Enable=1, Disable=0|Text</li><ul><li>Show icon in system tray for HoeKey.  Double click to configure.<br>
+	Text is optional tooltip for the icon.
+<pre>
+Start=TrayIcon|1|je suis un canard gigantesque
+</pre>
+		</li>
+	</ul>	
+
+	<a name=HotKeys>
+	<li><b>HotKeys</b>|Enable=1, Disable=0</li><ul><li>Enable or disable hotkeys
+<pre>
+; Disable hotkeys, run notepad, re-enable hotkeys
+~9=HotKeys|0
+=Run|notepad.exe||1
+=HotKeys|1
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Reload>
+	<li><b>Reload</b>|File|Append=1</li><ul><li>Reload HoeKey config file
+<pre>
+~R=Reload				; reload current config
+~R=Reload|gaming.ini	; load different config
+~R=Reload|tv.ini|1		; add on other config
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Rem>
+	<li><b>Rem</b>|Some Comment</li><ul><li>Remark / comment, the key is ignored
+<pre>
+~F=Rem|Find Files		; Explorer binds this
+-=Rem|-- Winamp Functions -- ; Describe a section
+</pre>
+		</li>
+	</ul>	
+
+</ul>
+
+</table>
+
+<br>
+<br>
+<a name=special>
+<h3>Special commands:</h3>
+There are some config options, anywhere in your .ini file:
+<ul>
+	<a name=Config>
+	<li><b>Config</b>=Function|Option...</li><ul><li>Do action when Config button is clicked in HoeKey
+<pre>
+Config=Run|hoekeyconfig.exe %i
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Start>
+	<li><b>Start</b>=Function|Option...</li><ul><li>Do action when line is read during startup (not stackable, just put multiple)
+<pre>
+Start=MsgBox|HoeKey Started sir!
+</pre>
+		</li>
+	</ul>	
+
+	<a name=Load>
+	<li><b>Load</b>=Function|Option...</li><ul><li>Do action every time config is loaded (not stackable, just put multiple)
+<pre>
+Load=MsgBox|Config loaded.
+</pre>
+		</li>
+	</ul>	
+
+</ul>
+
+<br><br>
+<a name="keys" />
+<h3>Special Keys:</h3>
+<table><tr><td width=100>
+Backspace<br>
+Tab<br>
+Enter<br>
+Esc<br>
+Space<br>
+Page Up<br>
+Page Down<br>
+End<br>
+Home<br>
+Left<br>
+Up<br>
+Right<br>
+Down<br>
+Insert<br>
+Delete
+</td><td width=100>
+Num 0<br>
+Num 1<br>
+Num 2<br>
+Num 3<br>
+Num 4<br>
+Num 5<br>
+Num 6<br>
+Num 7<br>
+Num 8<br>
+Num 9<br>
+Num /<br>
+Num *<br>
+Num +<br>
+Num -<br>
+Num Del
+</td><td width=100>
+F1<br>
+F2<br>
+F3<br>
+F4<br>
+F5<br>
+F6<br>
+F7<br>
+F8<br>
+F9<br>
+F10<br>
+F11<br>
+F12
+</td><td width=100>
+Num Lock<br>
+Application<br>
+Right Windows<br>
+Left Windows<br>
+Caps Lock
+</td></tr></table>
+<br>
+You can get a more detailed listing of keys <a href="http://blogs.toneengel.com/btone/archive/2003/03/10/256.aspx">here</a>.  (use the second column of numbers)
+<br><br>
+
+<a name=multimediakeys>
+<h3>Multi-media keyboard keys:</h3>
+These are the funny keys along the top of some keyboards.  Hoekey only supports these in WindowsXP (but try anyway and tell me if I'm wrong!)
+<pre>
+179=Msg|Winamp v1.x|273|40046 ; pause winamp
+</pre>
+<table>
+<tr><td><b>Key</td><td><b>Code to use in HoeKey</td></tr>
+<tr><td>BROWSER_BACK</td><td>166</td></tr>
+<tr><td>BROWSER_FORWARD</td><td>167</td></tr>
+<tr><td>BROWSER_REFRESH</td><td>168</td></tr>
+<tr><td>BROWSER_STOP</td><td>169</td></tr>
+<tr><td>BROWSER_SEARCH</td><td>170</td></tr>
+<tr><td>BROWSER_FAVORITES</td><td>171</td></tr>
+<tr><td>BROWSER_HOME</td><td>172</td></tr>
+<tr><td>VOLUME_MUTE</td><td>173</td></tr>
+<tr><td>VOLUME_DOWN</td><td>174</td></tr>
+<tr><td>VOLUME_UP</td><td>175</td></tr>
+<tr><td>MEDIA_NEXT_TRACK</td><td>176</td></tr>
+<tr><td>MEDIA_PREV_TRACK</td><td>177</td></tr>
+<tr><td>MEDIA_STOP</td><td>178</td></tr>
+<tr><td>MEDIA_PLAY_PAUSE</td><td>179</td></tr>
+<tr><td>LAUNCH_MAIL</td><td>180</td></tr>
+<tr><td>LAUNCH_MEDIA_SELECT</td><td>181</td></tr>
+<tr><td>LAUNCH_APP1</td><td>182</td></tr>
+<tr><td>LAUNCH_APP2</td><td>183</td></tr>
+</table>
+
+<a name=multimedia>
+<h3>Media Messages:</h3>
+Send these messages to WMPlayerApp to control Windows Media Player, or Progman for general:
+<table>
+<tr><td><b>Function</td><td><b>lParam</td><td><b>Example</td></tr>
+<tr><td>BROWSER_BACKWARD</td><td>65536</td><td></td></tr>
+<tr><td>BROWSER_FORWARD</td><td>131072</td><td></td></tr>
+<tr><td>BROWSER_REFRESH</td><td>196608</td><td></td></tr>
+<tr><td>BROWSER_STOP</td><td>262144</td><td></td></tr>
+<tr><td>BROWSER_SEARCH</td><td>327680</td><td></td></tr>
+<tr><td>BROWSER_FAVORITES</td><td>393216</td><td></td></tr>
+<tr><td>BROWSER_HOME</td><td>458752</td><td></td></tr>
+<tr><td>VOLUME_MUTE</td><td>524288</td><td></td></tr>
+<tr><td>VOLUME_DOWN</td><td>589824</td><td></td></tr>
+<tr><td>VOLUME_UP</td><td>655360</td><td></td></tr>
+<tr><td>MEDIA_NEXTTRACK</td><td>720896</td><td></td></tr>
+<tr><td>MEDIA_PREVIOUSTRACK</td><td>786432</td><td></td></tr>
+<tr><td>MEDIA_STOP</td><td>851968</td><td>~x=Msg|WMPlayerApp|793|0|851968 ; Stop WMP</td></tr>
+<tr><td>MEDIA_PLAY_PAUSE</td><td>917504</td><td>~c=Msg|WMPlayerApp|793|0|917504 ; Pause WMP</td></tr>
+<tr><td>LAUNCH_MAIL</td><td>983040</td><td></td></tr>
+<tr><td>LAUNCH_MEDIA_SELECT</td><td>1048576</td><td></td></tr>
+<tr><td>LAUNCH_APP1</td><td>1114112</td><td></td></tr>
+<tr><td>LAUNCH_APP2</td><td>1179648</td><td></td></tr>
+<tr><td>BASS_DOWN</td><td>1245184</td><td></td></tr>
+<tr><td>BASS_BOOST</td><td>1310720</td><td></td></tr>
+<tr><td>BASS_UP</td><td>1376256</td><td></td></tr>
+<tr><td>TREBLE_DOWN</td><td>1441792</td><td></td></tr>
+<tr><td>TREBLE_UP</td><td>1507328</td><td></td></tr>
+<tr><td>MICROPHONE_VOLUME_MUTE</td><td>1572864</td><td></td></tr>
+<tr><td>MICROPHONE_VOLUME_DOWN</td><td>1638400</td><td></td></tr>
+<tr><td>MICROPHONE_VOLUME_UP</td><td>1703936</td><td></td></tr>
+<tr><td>HELP</td><td>1769472</td><td></td></tr>
+<tr><td>FIND</td><td>1835008</td><td></td></tr>
+<tr><td>NEW</td><td>1900544</td><td></td></tr>
+<tr><td>OPEN</td><td>1966080</td><td></td></tr>
+<tr><td>CLOSE</td><td>2031616</td><td></td></tr>
+<tr><td>SAVE</td><td>2097152</td><td></td></tr>
+<tr><td>PRINT</td><td>2162688</td><td></td></tr>
+<tr><td>UNDO</td><td>2228224</td><td></td></tr>
+<tr><td>REDO</td><td>2293760</td><td></td></tr>
+<tr><td>COPY</td><td>2359296</td><td></td></tr>
+<tr><td>CUT</td><td>2424832</td><td></td></tr>
+<tr><td>PASTE</td><td>2490368</td><td></td></tr>
+<tr><td>REPLY_TO_MAIL</td><td>2555904</td><td></td></tr>
+<tr><td>FORWARD_MAIL</td><td>2621440</td><td></td></tr>
+<tr><td>SEND_MAIL</td><td>2686976</td><td></td></tr>
+<tr><td>SPELL_CHECK</td><td>2752512</td><td></td></tr>
+<tr><td>DICTATE_OR_COMMAND_CONTROL_TOGGLE</td><td>2818048</td><td></td></tr>
+<tr><td>MIC_ON_OFF_TOGGLE</td><td>2883584</td><td></td></tr>
+<tr><td>CORRECTION_LIST</td><td>2949120</td><td></td></tr>
+<tr><td>MEDIA_PLAY</td><td>3014656</td><td></td></tr>
+<tr><td>MEDIA_PAUSE</td><td>3080192</td><td></td></tr>
+<tr><td>MEDIA_RECORD</td><td>3145728</td><td></td></tr>
+<tr><td>MEDIA_FAST_FORWARD</td><td>3211264</td><td>~v=Msg|WMPlayerApp|793|0|3211264 ; Fast Forward WMP</td></tr>
+<tr><td>MEDIA_REWIND</td><td>3276800</td><td>~z=Msg|WMPlayerApp|793|0|3276800 ; Rewind WMP</td></tr>
+<tr><td>MEDIA_CHANNEL_UP</td><td>3342336</td><td></td></tr>
+<tr><td>MEDIA_CHANNEL_DOWN</td><td>3407872</td><td></td></tr>
+</table>
+
+<br>
+comments ? <a href="mailto:hoe@bcheck.net">tim</a>
+<h3>history:</h3>
+<ul>
+
+	<li>1.13: Jan 5, 2005
+	<ul>
+		<li>Add aliasing, see ConfigExamples and the help file for more information		
+		<li>Show special key names (option in system menu of config window)
+		<li>Change versioning convention.  1.13 is the newest
+	</ul>
+	<li>a12b8: Nov 15, 2004
+	<ul>
+		<li>Change cursor right in key send to \k instead of \r
+		<li>Simplify example config
+		<li>Add ConfigExamples.ini file
+	</ul>
+	<li>a12b7: Sep 8, 2004
+	<ul>
+		<li>Remove \r \n \t from run and rundialog - this was causing confusion with paths
+		<li>newest upx and nsis
+		<li>move to http://apps.bcheck.net/
+	</ul>
+	<li>a12b6: Jun 16, 2004
+	<ul>
+		<li>Fix up the installer
+		<li>Add \r \n \t to msgbox, run, etc.  e.g. ~d=msgbox|Hi\r\nThere!
+		<li>Fix strange input/messagebox behavior (not showing quoted strings, accented characters, etc)
+		<li>%U and %S are url-encoded counterparts of %u and %s for URL runs, e.g. ~d=Run|http://www.google.com/search?q=%S
+	</ul>
+	<li>a12b4: Apr 07, 2004
+	<ul>
+		<li>About box in keys screen sysmenu
+		<li>unhide multiple selections in the Apps dialog
+	</ul>
+	<li>a12b3: Mar 30, 2004
+	<ul>
+		<li>Keys command can use all the same stuff as run/msgbox, e.g. %c for current directory.
+		<li>%f = current date, %g = current time (no seconds), %h = current time (with seconds)
+	</ul>
+	<li>a12b2: Mar 04, 2004
+	<ul>
+		<li>Use hoekey.ini file from same directory as hoekey.exe rather than the "Start-in" directory
+		<li>Remember Config and Apps dialog sizes (saves to hksettings.ini file)
+	</ul>
+	<li>a12b1: Mar 03, 2004
+	<ul>
+		<li>Close applist on double click app
+		<li>Option to permanently hide windows (not add to stack) (specify 2 for ToTray parameter)
+		<li>Disable/enable hotkeys does not get disabled
+		<li>Disable test ui for config
+	</ul>
+	<li>a12b0: Dec 11, 2003 (test only)
+	<ul>
+		<li>Test of ui for config (no add or remove, and default config disables)
+		<li>Expand environment strings (%path%, etc), for run, msgbox, etc etc
+	</ul>
+	<li>a11b13: Oct 29, 2003
+	<ul>
+		<li>Add context menu to sendkeys (\z)
+	</ul>
+	<li>a11b12: Sep 23, 2003
+	<ul>
+		<li>Reduce apparent memory usage for hidden apps
+		<li>Unhide apps to previous state
+		<li>On failed function, do not continue stacked hoekey (run, input, etc)
+	</ul>
+	<li>a11b11: Sep 21, 2003
+	<ul>
+		<li>fix problem with UnhideAll command
+		<li>Add HideTomTray option to hide function: hide||1 = hide to tray, double click icon or unhide hotkey to show again
+		<li>setforegroundwindow after unhideapp
+		<li>fix %c/%d doc mixup
+		<li>add small wait after input/msgbox for stacking
+	</ul>
+	<li>a11b10: Sep 14, 2003
+	<ul>
+		<li>Add working directory parm to RunDialog
+	</ul>
+	<li>a11b9: Sep 3, 2003
+	<ul>
+		<li>Alt-key hotkeys for keys command doesn't eat first key (jdn)
+		<li>Hold down modifiers and do several hotkeys without releasing modifiers (jdn)
+		<li>Fix compatibility with early releases of Win95
+		<li>Cleanup .ini file
+		<li>Update config dialog for Reload command (jdn)
+		<li>Restore focus after config/apps dialog (jdn)
+		<li>"\-" = space in Keys command (for leading or trailing) (jdn)
+		<li>Stack/Unstack/Cycle commands (see config, seeing if any interest) (jdn)
+		<li>Fix Unhide crasher introduced in a11b8
+	</ul>
+	<li>a11b8: Aug 24, 2003
+	<ul>
+		<li>add Apps function, shows list of windows hidden by hoekey, or all windows (milan)
+		<li>Hide/Unhide specific windows
+	</ul>
+	<li>a11b7: Aug 23, 2003
+	<ul>
+		<li>add Input function, input is %u in anything stringable (amorpheus)
+		<li>make MsgBox text selectable
+	</ul>
+	<li>a11b6: Aug 6, 2003
+	<ul>
+		<li>Rem function (milan)
+		<li>??? (mystery features)
+		<li>eject cd (Amorpheus)
+		<li>reduce taskmgr's shown mem usage
+	</ul>
+	<li>a11b5: Jul 22, 2003
+	<ul>
+		<li>add include option to reload command
+		<li>if run hoekey.exe with different config while hoekey already running, can append to current config
+		<li>move width/height not working (bbarker)
+		<li>show nice names for keys, can use nice names in config file too (ohl)
+	</ul>
+	<li>a11b4: Jun 27, 2003
+	<ul>
+		<li>add timed msgbox
+		<li>fix crashers showing config (stacked commands)
+		<li>fix config to edit reloaded config
+		<li>reload in stack causes problems, don't do it :)
+	</ul>
+	<li>a11b3: Jun 24, 2003
+	<ul>
+		<li>change Reload to accept ini file name, e.g. ~114=Reload|c:\hoekey\other.ini
+	</ul>
+	<li>a11b2: Jun 5, 2003
+	<ul>
+		<li>add escape and windows keys to keys function
+		<li>add Windows and Escape keys to Keys command
+		<li>if windowclass=0, then gets desktopwindow
+		<li>add runonce parm to Run command - reactivates prev run app (wait=2)
+		<li>fix Show command to setforeground
+		<li>clean up versioning
+	</ul>
+
+	<li>a10: May 28, 2003
+	<ul>
+		<li>Add Move function, =Move|class|left|top|width|height  negative numbers move relative to lower right of screen
+		<li>Add MoveRel function to move window relatively, =Move|class|left|top|width|height where left,top etc can be negative
+		<li>Add Center function = Center|class|1or2  where 1=don't center width, 2=don't center height
+		<li>Add Kill function (scarey!)
+		<li>Add HotKeys function: =enable||1 ; to enable   =enable||0 ; to disable hotkeys
+		<li>Add TrayIcon function to enable HoeKey trayicon and set tooltip, double click for config
+		<li>Add Config command, like config=Run|hoekeyconfig.exe %i
+		<li>!Changed startup commands to Start= rather than 1= - note they dont stack, just put multiple
+		<li>In Run function: %i=hoekey ini file, %t=current window title, %l=current window class
+		<li>%s,%d,%c,%i,%t,%l work in msgbox as well as run
+		<li>Add wait parm to Run function: e.g. Run|notepad.exe %i||1 (run notepad and wait until exit)
+		<li>Add per keystroke delay to Keys : =Keys|blahblah|100  ; 100 msec delay between keystrokes
+		<li>Can now use explorer's hotkeys by "Start=Kill|progman" at top and "Start=Run|explorer.exe" at bottom
+		<li>Add to default config: win shift e to open explorer in current dir (scarey!)
+		<li>Cleaned example config file
+		<li>Tried making this help file more clear
+		<li>Add installer as alternative to zip download
+		<li>Add "start in directory" to Run function
+		<li>Can specify hoekey ini file on command line, eg HoeKey.exe c:\blah\timskeys.ini
+		<li>Can run hoekey function and exit, eg HoeKey.exe -XMsgBox|Hi there!!
+	</ul>
+
+	<li>a9: May 22, 2003
+	<ul>
+		<li>In Run function: %c = curdir, %d = curdrive of top window (maybe not all versions of explorer)
+		<li>Fix longer key codes
+		<li>Fix mod keys getting re-hit (start menu pops up after long Keys command)
+	</ul>
+
+	<li>a8: April 11, 2003
+	<ul>
+		<li>Fixed stacked commands - specify with blank key
+		<li>Resizable config window
+		<li>Close HoeKey if error loading keyfile
+		<li>Add Show function
+		<li>Focus application with focusmsg function
+		<li>Add suspend / hibernate command to default config file
+		<li>Show comments as descriptions for key commands
+		<li>Make run dialog box show up in lower left corner
+		<li>Specify max/min/normal window for run command: ~N=Run|notepad.exe|3  - 0/1=norm,2=min,3=max
+	</ul>
+
+	<li>a7: March 29, 2003
+	<ul>
+		<li>Add RunDialog function
+		<li>Add AlwaysOnTop function
+		<li>Add Transparency function (win2k, xp)
+		<li>Send message to current window ( minimize/maximize/restore in config )
+		<li>Don't eat all the %'s in urls
+	</ul>
+
+	<li>a6: May 28, 2002: fix Keys to send non alpha-numeric stuff.
+	<li>a5: April 3, 2002: allow 3 numbers.  fix misc key mappings, e.g. tilde.
+	<li>a4: fix line numbers for errors.  use 16x16 icon.  change Quit to Config.  fix Run when used with %s clipboard stuff (crashed!).  deprecate quit and reload.  Reduce size to 9k uncompressed, 7k compressed
+	<li>a3: released at bcheck.arsware.org
+</ul>

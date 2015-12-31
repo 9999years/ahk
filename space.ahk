@@ -10,6 +10,13 @@ Return
 ;win+j open downloads
 #j::Run %USERPROFILE%\Downloads
 
+;win+f open powershell
+;#f::Send %c%;Run powershell -noexit -command "cd \"%c%\""
+
+Send !d
+        ControlGetText Path , Edit1
+        Send {Enter}
+
 #LShift::
 If GetKeyState("CapsLock", "T") = 1
     SetCapsLockState, AlwaysOff
