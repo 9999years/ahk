@@ -38,3 +38,4 @@ RAlt & ]::Send {U+2019} ;close single quote
 
 RAlt & r::Send {U+00AE} ; Registered trademark
 RAlt & t::Send {U+2122} ; TM
+RAlt & o::Send {U+00B0} ; degree sign
