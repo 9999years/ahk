@@ -45,13 +45,6 @@ Ralt & Space::Send {U+2009} ; thin space
 Ralt & ,::Send {U+3008} ; open guillemet
 Ralt & .::Send {U+3009} ; close guillemet
 
-#if GetKeyState("Shift","P")
-	Ralt & d::Send {U+2021} ; double dagger
-	Ralt & m::Send {U+2003} ; em space
-	Ralt & n::Send {U+2002} ; en space
-	Ralt & =::Send {U+2260} ; not equal to
-#if ; end shift block
-
 Ralt & <::Send {U+2264} ; less than or equal to
 Ralt & >::Send {U+2265} ; greater than or equal to
 Ralt & -::Send {U+00B1} ; plus/minus sign
@@ -63,12 +56,20 @@ Ralt & o::Send {U+2116} ; Number sign
 Ralt & p::Send {U+00B6} ; Pilcrow / paragraph sign
 Ralt & s::Send {U+00A7} ; Section
 Ralt & z::Send {U+203B} ; Reference mark
+Ralt & e::Send {U+2026} ; ellipsis
 
 ;DIACRITICS
 Ralt & g::Send {U+0300} ; grave
 Ralt & a::Send {U+0301} ; acute
 Ralt & u::Send {U+0308} ; diaresis / umalaut
 Ralt & f::Send {U+0327} ; cedilla
+
+#if GetKeyState("Shift","P")
+	Ralt & d::Send {U+2021} ; double dagger
+	Ralt & m::Send {U+2003} ; em space
+	Ralt & n::Send {U+2002} ; en space
+	Ralt & =::Send {U+2260} ; not equal to
+#if ; end shift block
 
 ;ARROWS
 Ralt & Up::Send {U+2191} ; up arrow
