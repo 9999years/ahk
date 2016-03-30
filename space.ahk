@@ -57,6 +57,9 @@ Ralt & p::Send {U+00B6} ; Pilcrow / paragraph sign
 Ralt & s::Send {U+00A7} ; Section
 Ralt & z::Send {U+203B} ; Reference mark
 Ralt & e::Send {U+2026} ; ellipsis
+Ralt & x::Send {U+00d7} ; multiplication x
+Ralt & j::Send {U+200c} ; zwnj
+Ralt & b::Send {U+0009} ; tab
 
 ;DIACRITICS
 Ralt & g::Send {U+0300} ; grave
