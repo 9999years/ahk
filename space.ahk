@@ -2,6 +2,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 #SingleInstance force
 
+#Hotstring O
+#Hotstring EndChars `n`t
+
 ;printscreen run gyazo
 PrintScreen::
 	Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
@@ -60,7 +63,10 @@ Ralt & e::Send {U+2026} ; ellipsis
 Ralt & x::Send {U+00d7} ; multiplication x
 Ralt & j::Send {U+200c} ; zwnj
 Ralt & b::Send {U+0009} ; tab
-Ralt & q::Send {U+af}{U+5c}{U+5f}{U+28}{U+30c4}{U+29}{U+5f}{U+2f}{U+af}
+
+::smugshrug::{U+af}{U+5c}{U+5f}{U+28}{U+30c4}{U+29}{U+5f}{U+2f}{U+af}
+;{U+1f914}
+::hmm::{U+d83e}{U+dd14} ; lol surrogates
 
 ;DIACRITICS
 Ralt & g::Send {U+0300} ; grave
