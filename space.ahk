@@ -3,7 +3,21 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 #SingleInstance force
 
 #Hotstring O
-#Hotstring EndChars `n `t
+;#Hotstring EndChars `n `t
+
+::smugshrug::{U+af}{U+5c}{U+5f}{U+28}{U+30c4}{U+29}{U+5f}{U+2f}{U+af}
+;{U+1f914}
+::;hmm;::{U+d83e}{U+dd14} ; lol surrogates
+::;pray;::{U+d83d}{U+de4f}
+::;thumbs;::{U+d83d}{U+dc4d}
+::;ok;::{U+d83d}{U+dc4c}
+::;peace;::{U+270c}
+::;clap;::{U+d83d}{U+dc4f}
+::;heart;::{U+d83d}{U+dc96}
+::;check;::{U+2611}
+::;emptycheck;::{U+2610}
+::;checkempty;::{U+2610}
+::;ballotx;::{U+2612}
 
 ;printscreen run gyazo
 PrintScreen::
@@ -63,16 +77,6 @@ Ralt & e::Send {U+2026} ; ellipsis
 Ralt & x::Send {U+00d7} ; multiplication x
 Ralt & j::Send {U+200c} ; zwnj
 Ralt & b::Send {U+0009} ; tab
-
-::smugshrug::{U+af}{U+5c}{U+5f}{U+28}{U+30c4}{U+29}{U+5f}{U+2f}{U+af}
-;{U+1f914}
-::;hmm;::{U+d83e}{U+dd14} ; lol surrogates
-::;pray;::{U+d83d}{U+de4f}
-::;thumbs;::{U+d83d}{U+dc4d}
-::;ok;::{U+d83d}{U+dc4c}
-::;peace;::{U+270c}
-::;clap;::{U+d83d}{U+dc4f}
-::;heart;::{U+d83d}{U+dc96}
 
 
 ;DIACRITICS
