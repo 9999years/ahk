@@ -7,7 +7,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::smugshrug::{U+af}{U+5c}{U+5f}{U+28}{U+30c4}{U+29}{U+5f}{U+2f}{U+af}
 ;{U+1f914}
-::;hmm;::{U+d83e}{U+dd14} ; lol surrogates
+::;hmm;::{U+d83e}{U+dd14} ; lol surrogates í ¾í´”
 ::;pray;::{U+d83d}{U+de4f}
 ::;thumbs;::{U+d83d}{U+dc4d}
 ::;ok;::{U+d83d}{U+dc4c}
