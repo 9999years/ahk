@@ -18,6 +18,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;emptycheck;::{U+2610}
 ::;checkempty;::{U+2610}
 ::;ballotx;::{U+2612}
+::;shock;::{U+d83d}{U+de28}
 
 ;printscreen run gyazo
 PrintScreen::
