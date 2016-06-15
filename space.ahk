@@ -85,8 +85,31 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f914
 ::;hmm;::🤔
 
+;U+1f62f
+::;scared;::😯
+
+;U+1f61f
+::;upset;::😟
+
+;U+1f626
+::;upset2;::😦
+
+;U+1f627
+::;upset3;::😧
+
 ;U+1f628
+::;upset4;::😨
 ::;shock;::😨
+
+;U+1f620
+::;angry;::😠
+
+;U+1f62c
+::;grimace;::😬
+
+;U+1f635
+::;dizzy;::😵
+::;dead;::😵
 
 ;U+1f610
 ::;neutral;::😐
@@ -96,9 +119,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f60f
 ::;smug;::😏
-
-;U+1f62f
-::;scared;::😯
 
 ;U+1f612
 ::;unimpressed;::😒
