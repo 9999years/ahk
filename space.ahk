@@ -63,6 +63,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+2728
 ::;sparkle;::✨
 
+;U+1f440
+::;eyes;::👀
+
 ;===PEOPLE===
 
 ;U+1f481
@@ -84,6 +87,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f914
 ::;hmm;::🤔
+::;hm;::🤔
 
 ;U+1f62f
 ::;scared;::😯
@@ -128,6 +132,11 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f633
 ::;blush;::😳
+
+;U+1f644
+::;eyeroll;::🙄
+
+;===CAT FACES===
 
 ;U+1f63a--U+1f63e
 ::;catsmile;::😺
