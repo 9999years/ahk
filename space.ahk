@@ -89,6 +89,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;hmm;::🤔
 ::;hm;::🤔
 
+;U+1f60e
+::;sunglasses;::😎
+
 ;U+1f62f
 ::;scared;::😯
 
@@ -117,6 +120,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f610
 ::;neutral;::😐
+
+;U+1f636
+::;blank;::😶
 
 ;U+1f60d
 ::;hearteyes;::😍
