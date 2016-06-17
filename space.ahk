@@ -203,23 +203,28 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f44b
 ::;wave;::👋
 
-;SendUnicodeChar(0x0000)
+;===END EMOJI BLOCK===
 
-;printscreen run gyazo
+;===ACTIONS===
+
 PrintScreen::
 	Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
 Return
 
-;win+j open downloads
+;Open the downloads folder with Win+j
 #j::Run %USERPROFILE%\Downloads
 
-;win+f open powershell
+;Open Powershell with Win+f
 #f::Send ^l powershell {enter}
 
-Send !d
-        ControlGetText Path , Edit1
-        Send {Enter}
+;I don't know what these lines were supposed to do
+;so I commented them out. I hope this doesn't break
+;anything
+;Send !d
+        ;ControlGetText Path , Edit1
+        ;Send {Enter}
 
+;Win+Left Shift toggles capslock
 #LShift::
 If GetKeyState("CapsLock", "T") = 1
     SetCapsLockState, AlwaysOff
@@ -227,55 +232,133 @@ Else
     SetCapsLockState, AlwaysOn
 Return
 
+;Media shortcuts!
 Pause::Send {Media_Play_Pause}
 Ralt & Pause::Send {Media_Next}
 RShift & Pause::Send {Media_Prev}
 
 Ralt & Enter::Send {NumpadEnter}
-RAlt & m::Send {U+2014} ;em dash
-RAlt & n::Send {U+2013} ;en dash
-RAlt & `;::Send {U+201C} ;open double quotes
-RAlt & '::Send {U+201D} ;close double quotes
-RAlt & [::Send {U+2018} ;open single quote
-RAlt & ]::Send {U+2019} ;close single quote
 
-RAlt & r::Send {U+00AE} ; Registered trademark
-RAlt & t::Send {U+2122} ; TM
-RAlt & 0::Send {U+00B0} ; degree sign
+;===MISC SYMBOLS===
 
-Ralt & ?::Send {U+00B7} ; middle dot
-Ralt & Space::Send {U+2009} ; thin space
-Ralt & ,::Send {U+3008} ; open guillemet
-Ralt & .::Send {U+3009} ; close guillemet
+;em dash
+;u+2014
+RAlt & m::Send —
 
-Ralt & <::Send {U+2264} ; less than or equal to
-Ralt & >::Send {U+2265} ; greater than or equal to
-Ralt & -::Send {U+00B1} ; plus/minus sign
-Ralt & =::Send {U+2248} ; approximately equal to
-Ralt & c::Send {U+00A9} ; Copyright
-Ralt & d::Send {U+2020} ; dagger
-Ralt & h::Send {U+2767} ; heart bullet / fleuron / hedera 
-Ralt & o::Send {U+2116} ; Number sign
-Ralt & p::Send {U+00B6} ; Pilcrow / paragraph sign
-Ralt & s::Send {U+00A7} ; Section
-Ralt & z::Send {U+203B} ; Reference mark
-Ralt & e::Send {U+2026} ; ellipsis
-Ralt & x::Send {U+00d7} ; multiplication x
-Ralt & j::Send {U+200c} ; zwnj
-Ralt & b::Send {U+0009} ; tab
+;en dash
+;u+2013
+RAlt & n::Send –
+
+;quotes
+;u+2018--u+201c
+RAlt & `;::Send “
+RAlt & '::Send ”
+RAlt & [::Send ‘
+RAlt & ]::Send ’
+
+;registered trademark
+;u+00ae
+RAlt & r::Send ®
+
+;tm
+;u+2122
+RAlt & t::Send ™
+
+;degree sign
+;u+00b0
+RAlt & 0::Send °
+
+;mid dot
+;u+00b7
+Ralt & ?::Send ·
+
+;leq and geq
+;u+2264 u+2265
+Ralt & <::Send ≤
+Ralt & >::Send ≥
+
+;plus minus
+;u+00b1
+Ralt & -::Send ±
+
+;approx equal to
+;u+2248
+Ralt & =::Send ≈
+
+;copyright
+;u+00a9
+Ralt & c::Send ©
+
+;dagger
+;u+2020
+Ralt & d::Send †
+
+;heart bullet / fleuron / hedera 
+;U+2767
+Ralt & h::Send ❧
+
+;number sign
+;u+2116
+Ralt & o::Send №
+
+;pilcrow
+;u+00b6
+Ralt & p::Send ¶
+
+;section sign
+;u+00a7
+Ralt & s::Send §
+
+;ref mark
+;u+203b
+Ralt & z::Send ※
+
+;ellipsis
+;u+2026
+Ralt & e::Send …
+
+;multiplication x
+;u+00d7
+Ralt & x::Send ×
+
+;whitespace:
+
+;zwnj
+;u+200c
+Ralt & j::Send {U+200c}
+
+;tab
+;u+0009
+Ralt & b::Send {U+0009}
 
 
-;DIACRITICS
-Ralt & g::Send {U+0300} ; grave
-Ralt & a::Send {U+0301} ; acute
-Ralt & u::Send {U+0308} ; diaresis / umalaut
-Ralt & f::Send {U+0327} ; cedilla
+;===DIACRITICS===
+Ralt & g::Send {U+0300} ; gravè
+Ralt & a::Send {U+0301} ; acuté
+Ralt & u::Send {U+0308} ; diaresis / umalaüt
+Ralt & f::Send {U+0327} ; cedilla̧
 
 #if GetKeyState("Shift","P")
-	Ralt & d::Send {U+2021} ; double dagger
-	Ralt & m::Send {U+2003} ; em space
-	Ralt & n::Send {U+2002} ; en space
-	Ralt & =::Send {U+2260} ; not equal to
+	;double dagger
+	;u+2021
+	Ralt & d::Send ‡
+
+	;em space
+	;u+2003
+	Ralt & m::Send {U+2003}
+
+	;en space
+	;u+2002
+	Ralt & n::Send {U+2002}
+
+	;neq
+	;u+2260
+	Ralt & =::Send ≠
+
+	;guillemets
+	;u+3008 and u+3009
+	Ralt & ,::Send 〈
+	Ralt & .::Send 〉
 #if ; end shift block
 
 ;ARROWS
