@@ -66,6 +66,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f440
 ::;eyes;::👀
 
+;U+1f4af
+::;100;::💯
+
 ;===PEOPLE===
 
 ;U+1f481
@@ -148,7 +151,10 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;catsmile;::😺
 ::;catgrin;::😸
 ::;catlaugh;::😹
+
 ::;cathearteyes;::😻
+::;catlove;::😻
+
 ::;catkiss;::😽
 ::;catfear;::🙀
 
@@ -202,6 +208,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f44b
 ::;wave;::👋
+
+;u+1f919
+::;callme;::🤙
 
 ;===END EMOJI BLOCK===
 
