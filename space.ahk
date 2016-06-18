@@ -209,7 +209,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f44b
 ::;wave;::👋
 
-;u+1f919
+;U+1f919
 ::;callme;::🤙
 
 ;===END EMOJI BLOCK===
@@ -251,55 +251,55 @@ Ralt & Enter::Send {NumpadEnter}
 ;===MISC SYMBOLS===
 
 ;em dash
-;u+2014
+;U+2014
 RAlt & m::Send —
 
 ;en dash
-;u+2013
+;U+2013
 RAlt & n::Send –
 
 ;quotes
-;u+2018--u+201c
+;U+2018--u+201c
 RAlt & `;::Send “
 RAlt & '::Send ”
 RAlt & [::Send ‘
 RAlt & ]::Send ’
 
 ;registered trademark
-;u+00ae
+;U+00ae
 RAlt & r::Send ®
 
 ;tm
-;u+2122
+;U+2122
 RAlt & t::Send ™
 
 ;degree sign
-;u+00b0
+;U+00b0
 RAlt & 0::Send °
 
 ;mid dot
-;u+00b7
+;U+00b7
 Ralt & ?::Send ·
 
 ;leq and geq
-;u+2264 u+2265
+;U+2264 u+2265
 Ralt & <::Send ≤
 Ralt & >::Send ≥
 
 ;plus minus
-;u+00b1
+;U+00b1
 Ralt & -::Send ±
 
 ;approx equal to
-;u+2248
+;U+2248
 Ralt & =::Send ≈
 
 ;copyright
-;u+00a9
+;U+00a9
 Ralt & c::Send ©
 
 ;dagger
-;u+2020
+;U+2020
 Ralt & d::Send †
 
 ;heart bullet / fleuron / hedera 
@@ -307,37 +307,37 @@ Ralt & d::Send †
 Ralt & h::Send ❧
 
 ;number sign
-;u+2116
+;U+2116
 Ralt & o::Send №
 
 ;pilcrow
-;u+00b6
+;U+00b6
 Ralt & p::Send ¶
 
 ;section sign
-;u+00a7
+;U+00a7
 Ralt & s::Send §
 
 ;ref mark
-;u+203b
+;U+203b
 Ralt & z::Send ※
 
 ;ellipsis
-;u+2026
+;U+2026
 Ralt & e::Send …
 
 ;multiplication x
-;u+00d7
+;U+00d7
 Ralt & x::Send ×
 
 ;whitespace:
 
 ;zwnj
-;u+200c
+;U+200c
 Ralt & j::Send {U+200c}
 
 ;tab
-;u+0009
+;U+0009
 Ralt & b::Send {U+0009}
 
 
@@ -371,64 +371,97 @@ Ralt & f::Send {U+0327} ; cedilla̧
 #if ; end shift block
 
 ;ARROWS
-Ralt & Up::Send {U+2191} ; up arrow
-Ralt & Left::Send {U+2190} ; left arrow
-Ralt & Down::Send {U+2193} ; down arrow
-Ralt & Right::Send {U+2192} ; right arrow
+;Single arrows
+;U+2191
+Ralt & Up::Send ↑
+;U+2190
+Ralt & Left::Send ←
+;U+2193
+Ralt & Down::Send ↓
+;U+2192
+Ralt & Right::Send →
 
 #if GetKeyState("Up","P") and !GetKeyState("Shift","P")
-	Ralt & Left::Send {bs}{U+2196} ; nw single arrow
-	Ralt & Down::Send {bs}{U+2195} ; vertical 2 way arrow
-	Ralt & Right::Send {bs}{U+2197} ; ne single arrow
+	;U+2196
+	Ralt & Left::Send {bs}↖
+	;U+2195
+	Ralt & Down::Send {bs}↕
+	;U+2197
+	Ralt & Right::Send {bs}↗
 #if
 
 #if GetKeyState("Left","P") and !GetKeyState("Shift","P")
-	Ralt & Up::Send {bs}{U+2196} ; nw single arrow
-	Ralt & Down::Send {bs}{U+2199} ; sw single arrow
-	Ralt & Right::Send {bs}{U+2194} ; horizontal 2 way arrow
+	;U+2196
+	Ralt & Up::Send {bs}↖
+	;U+2199
+	Ralt & Down::Send {bs}↙
+	;U+2194
+	Ralt & Right::Send {bs}↔
 #if
 
 #if GetKeyState("Down","P") and !GetKeyState("Shift","P")
-	Ralt & Up::Send {bs}{U+2195} ; vertical 2 way arrow
-	Ralt & Left::Send {bs}{U+2199} ; sw single arrow
-	Ralt & Right::Send {bs}{U+2198} ; se single arrow
+	;U+2195
+	Ralt & Up::Send {bs}↕
+	;U+2199
+	Ralt & Left::Send {bs}↙
+	;U+2198
+	Ralt & Right::Send {bs}↘
 #if
 
 #if GetKeyState("Right","P") and !GetKeyState("Shift","P")
-	Ralt & Up::Send {bs}{U+2197} ; ne single arrow
-	Ralt & Left::Send {bs}{U+2194} ; horizontal 2 way arrow
-	Ralt & Down::Send {bs}{U+2198} ; se single arrow
+	;U+2197
+	Ralt & Up::Send {bs}↖
+	;U+2194
+	Ralt & Left::Send {bs}↔
+	;U+2198
+	Ralt & Down::Send {bs}↖
 #if
 
 ;DOUBLE ARROWS
 
 #if GetKeyState("Up","P")
-	Ralt & Left::Send {bs}{U+21D6} ; nw double arrow
-	Ralt & Down::Send {bs}{U+21D5} ; double vertical 2 way arrow
-	Ralt & Right::Send {bs}{U+21D7} ; ne double arrow
+	;U+21D6
+	Ralt & Left::Send {bs}⇖
+	;U+21D5
+	Ralt & Down::Send {bs}⇕
+	;U+21D7
+	Ralt & Right::Send {bs}⇗
 #if
 
 #if GetKeyState("Left","P")
-	Ralt & Up::Send {bs}{U+21D6} ; nw double arrow
-	Ralt & Down::Send {bs}{U+21D9} ; sw double arrow
-	Ralt & Right::Send {bs}{U+21D4} ; double horizontal 2 way arrow
+	;U+21D6
+	Ralt & Up::Send {bs}⇖
+	;U+21D9
+	Ralt & Down::Send {bs}⇙
+	;U+21D4
+	Ralt & Right::Send {bs}⇔
 #if
 
 #if GetKeyState("Down","P")
-	Ralt & Up::Send {bs}{U+21D5} ; double vertical 2 way arrow
-	Ralt & Left::Send {bs}{U+21D9} ; sw double arrow
-	Ralt & Right::Send {bs}{U+21D8} ; se double arrow
+	;U+21D5
+	Ralt & Up::Send {bs}⇕
+	;U+21D9
+	Ralt & Left::Send {bs}⇙
+	;U+21D8
+	Ralt & Right::Send {bs}⇘
 #if
 
 #if GetKeyState("Right","P")
-	Ralt & Up::Send {bs}{U+21D7} ; ne double arrow
-	Ralt & Left::Send {bs}{U+21D4} ; double horizontal 2 way arrow
-	Ralt & Down::Send {bs}{U+21D8} ; se double arrow
+	;U+21D7
+	Ralt & Up::Send {bs}⇗
+	;U+21D4
+	Ralt & Left::Send {bs}⇔
+	;U+21D8
+	Ralt & Down::Send {bs}⇘
 #if
 
 #if GetKeyState("Shift","P")
-	Ralt & Up::Send {U+21D1} ; up double arrow
-	Ralt & Left::Send {U+21D0} ; left double arrow
-	Ralt & Down::Send {U+21D3} ; down double arrow
-	Ralt & Right::Send {U+21D2} ; right double arrow
+	;U+21D1
+	Ralt & Up::Send ⇑
+	;U+21D0
+	Ralt & Left::Send ⇐
+	;U+21D3
+	Ralt & Down::Send ⇓
+	;U+21D2
+	Ralt & Right::Send ⇒
 #if
