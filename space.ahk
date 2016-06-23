@@ -69,6 +69,59 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f4af
 ::;100;::💯
 
+;U+1f4ca
+::;poll;::📊
+
+;===BOX DRAWING===
+
+;U+2588
+::;fullblock;::█
+
+;U+2591
+::;lightshade;::░
+
+;U+2592
+::;mediumshade;::▒
+
+;U+2593
+::;darkshade;::▓
+
+;single lines
+
+;U+2500
+::;horizontal;::─
+
+;U+2502
+::;vertical;::│
+
+;U+250c
+::;topleft;::┌
+
+;U+2510
+::;topright;::┐
+
+;U+2514
+::;bottomleft;::└
+
+;U+2518
+::;bottomright;::┘
+
+;U+251c
+::;3wayright;::├
+
+;U+2524
+::;3wayleft;::┤
+
+;U+252c
+::;3waydown;::┬
+
+;U+2534
+::;3wayup;::┴
+
+;U+253c
+::;cross;::┼
+::;4way;::┼
+
 ;===PEOPLE===
 
 ;U+1f481
@@ -250,6 +303,29 @@ Ralt & Enter::Send {NumpadEnter}
 
 ;===MISC SYMBOLS===
 
+#if GetKeyState("Shift","P")
+	;double dagger
+	;u+2021
+	Ralt & d::Send ‡
+
+	;em space
+	;u+2003
+	Ralt & m::Send {U+2003}
+
+	;en space
+	;u+2002
+	Ralt & n::Send {U+2002}
+
+	;neq
+	;u+2260
+	Ralt & =::Send ≠
+
+	;guillemets
+	;u+3008 and u+3009
+	Ralt & <::Send 〈
+	Ralt & >::Send 〉
+#if ; end shift block
+
 ;em dash
 ;U+2014
 RAlt & m::Send —
@@ -283,8 +359,8 @@ Ralt & ?::Send ·
 
 ;leq and geq
 ;U+2264 u+2265
-Ralt & <::Send ≤
-Ralt & >::Send ≥
+Ralt & ,::Send ≤
+Ralt & .::Send ≥
 
 ;plus minus
 ;U+00b1
@@ -346,29 +422,6 @@ Ralt & g::Send {U+0300} ; gravè
 Ralt & a::Send {U+0301} ; acuté
 Ralt & u::Send {U+0308} ; diaresis / umalaüt
 Ralt & f::Send {U+0327} ; cedilla̧
-
-#if GetKeyState("Shift","P")
-	;double dagger
-	;u+2021
-	Ralt & d::Send ‡
-
-	;em space
-	;u+2003
-	Ralt & m::Send {U+2003}
-
-	;en space
-	;u+2002
-	Ralt & n::Send {U+2002}
-
-	;neq
-	;u+2260
-	Ralt & =::Send ≠
-
-	;guillemets
-	;u+3008 and u+3009
-	Ralt & ,::Send 〈
-	Ralt & .::Send 〉
-#if ; end shift block
 
 ;ARROWS
 ;Single arrows
