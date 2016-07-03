@@ -141,6 +141,25 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;===FACES===
 
+;U+1f643
+::;upsidedown;::🙃
+
+;U+1f924
+::;drool;::🤤
+
+;U+1f609
+::;wink;::😉
+
+;U+1f60a
+::;smile;::😊
+
+;U+1f604
+::;grin;::😄
+
+;U+1f642
+::;happy;::🙂
+::;smile2;::🙂
+
 ;U+1f914
 ::;hmm;::🤔
 ::;hm;::🤔
@@ -188,6 +207,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f612
 ::;unimpressed;::😒
+::;unamused;::😒
 
 ;U+1f614
 ::;sad;::😔
