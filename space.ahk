@@ -26,15 +26,24 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+2764
 ::;heart;::❤
 
-;U+2611
-::;check;::☑
+;U+2714
+::;check;::✔
+
+;U+2718
+::;x;::✘
 
 ;U+2610
 ::;emptycheck;::☐
 ::;checkempty;::☐
 
+;U+2611
+::;ballotcheck;::☑
+
 ;U+2612
 ::;ballotx;::☒
+
+;U+25cb
+::;circ;::○
 
 ;U+1f436
 ::;dog;::🐶
@@ -71,6 +80,16 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f4ca
 ::;poll;::📊
+
+;U+1f480
+::;skull;::💀
+
+;U+1f4a6
+::;splash;::💦
+::;water;::💦
+
+;U+1f346
+::;eggplant;::🍆
 
 ;===BOX DRAWING===
 
@@ -135,9 +154,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f926
 ::;facepalm;::🤦
-
-;U+1f64f
-::;pray;::🙏
 
 ;===FACES===
 
@@ -238,6 +254,12 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;catpout;::😾
 
 ;===HANDS===
+
+;U+1f64f
+::;pray;::🙏
+
+;U+1F64C
+::;bless;::🙌
 
 ;U+1f44f
 ::;clap;::👏
