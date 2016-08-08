@@ -1,4 +1,5 @@
 ﻿;AHK scripts need a BOM to handle UTF-8 properly. Keep that in mind.
+;U+3b
 ;I normally hate to code in UTF-8, but AHK’s {U+xxxx} method only
 ;supports the BMP, translating {U+1f914} to U+f914
 ;So that's where we are, as a people, I guess.
@@ -87,6 +88,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f4a6
 ::;splash;::💦
 ::;water;::💦
+::;sweat;::💦
+::;thirst;::💦
 
 ;U+1f346
 ::;eggplant;::🍆
@@ -145,6 +148,10 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f481
 ::;petty;::💁
+
+;U+1f629
+;im sorry this is all i can remember
+::;dick;::😩
 
 ;U+1f937
 ::;shrug;::🤷
@@ -311,9 +318,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;===ACTIONS===
 
-PrintScreen::
-	Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
-Return
+;PrintScreen::
+	;Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
+;Return
 
 ;Open the downloads folder with Win+j
 #j::Run %USERPROFILE%\Downloads
