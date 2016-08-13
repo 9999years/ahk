@@ -94,6 +94,13 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f346
 ::;eggplant;::🍆
 
+;misc from http://knowyourmeme.com/memes/_-look-of-disapproval
+::;seriously;::ಠ_ಠ
+
+::;spicy;::ಥ_ಥ
+
+::;horrible;::ಠ益ಠ
+
 ;===BOX DRAWING===
 
 ;U+2588
