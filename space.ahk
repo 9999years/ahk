@@ -22,7 +22,16 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;===MISC===
 
+:C:;`:O;::⍥
+:C:;`:o;::⍤
+::;`:T;::⍡
+::;`:R;::⍢
+::;`:*;::⍣
+::;`:~;::⍨
+::;`:>;::⍩
+
 ::smugshrug::¯\_(ツ)_/¯
+::;shr;::¯\_(ツ)_/¯
 
 ;U+2764
 ::;heart;::❤
@@ -67,6 +76,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f61c
 ::;soon;::😜
 
+;U+1f512
+::;lock;::🔒
+
 ;U+3030
 ::;wavy;::〰
 
@@ -86,15 +98,15 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;skull;::💀
 
 ;U+1f4a6
-::;splash;::💦
 ::;water;::💦
 ::;sweat;::💦
-::;thirst;::💦
+
+;U+1f629
+::;thirst;::😩
 
 ;U+1f346
 ::;eggplant;::🍆
 
-;misc from http://knowyourmeme.com/memes/_-look-of-disapproval
 ::;seriously;::ಠ_ಠ
 
 ::;spicy;::ಥ_ಥ
@@ -199,6 +211,14 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;U+1f62f
 ::;scared;::😯
+
+;U+1f622
+::;tear;::😢
+
+;U+1f62d
+::;cry;::😭
+::;crying;::😭
+::;crying;::😭
 
 ;U+1f61f
 ::;upset;::😟
@@ -318,16 +338,141 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f44b
 ::;wave;::👋
 
+;U+1f918
+::;rock;::🤘
+::;devilhorns;::🤘
+
 ;U+1f919
 ::;callme;::🤙
 
 ;===END EMOJI BLOCK===
 
+;===DIACRITICS===
+;http://unicode.org/charts/PDF/U0300.pdf
+#Hotstring ?
+
+::;acute;::̀
+::;grave;::́
+
+::;circumflex;::̂
+::;hat;::̂
+
+::;tilde;::̃
+::;macron;::̄
+::;breve;::̆
+::;dotabove;::̇
+::;diaresis;::̈
+::;hookabove;::̉
+::;ringabove;::̊
+::;caron;::̌
+::;verticallineabove;::̍
+::;candrabindu;::̐
+::;invertedbreve;::̑
+::;turnedcommaabove;::̒
+::;commaabove;::̓
+::;reversedcommaabove;::̔
+::;commaaboveright;::̕
+::;gravebelow;::̖
+::;acutebelow;::̗
+::;horn;::̛
+::;dotbelow;::̣
+::;diaresisbelow;::̤
+::;ringbelow;::̥
+::;commabelow;::̦
+::;cedilla;::̧
+::;ogonek;::̨
+
+;yeah
+::;pho;::ở
+
+;===GREEK===
+::;alpha;::α
+::;beta;::β
+::;gamma;::γ
+::;delta;::δ
+::;epislon;::ε
+::;zeta;::ζ
+::;eta;::η
+::;theta;::θ
+::;iota;::ι
+::;kappa;::κ
+::;lambda;::λ
+::;mu;::μ
+::;nu;::ν
+::;xi;::ξ
+::;omicron;::ο
+::;pi;::π
+::;rho;::ρ
+::;sigma;::σ
+::;tau;::τ
+::;upsilon;::υ
+::;phi;::φ
+::;chi;::χ
+::;psi;::ψ
+::;omega;::ω
+
+::;Alpha;::Α
+::;Beta;::Β
+::;Gamma;::Γ
+::;Delta;::Δ
+::;Epislon;::Ε
+::;Zeta;::Ζ
+::;Eta;::Η
+::;Theta;::Θ
+::;Iota;::Ι
+::;Kappa;::Κ
+::;Lambda;::Λ
+::;Mu;::Μ
+::;Nu;::Ν
+::;Xi;::Ξ
+::;Omicron;::Ο
+::;Pi;::Π
+::;Rho;::Ρ
+::;Sigma;::Σ
+::;Tau;::Τ
+::;Upsilon;::Υ
+::;Phi;::Φ
+::;Chi;::Χ
+::;Psi;::Ψ
+::;Omega;::Ω
+
+;===MATH===
+::;infinity;::∞
+::;infty;::∞
+::;inf;::∞
+
+::;forall;::∀
+::;all;::∀
+::;every;::∀
+
+::;exists;::∃
+
+::;not;::¬
+
+::;plusorminus;::±
+::;plusminus;::±
+::;pm;::±
+
+::;therefore;::∴
+
+::;because;::∵
+::;bc;::∵
+
+::;intersection;::⋂
+::;union;::⋃
+
+::;subset;::⊂
+::;superset;::⊃
+
+#if ;end shift block
+
+#Hotstring 0
+
 ;===ACTIONS===
 
-;PrintScreen::
-	;Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
-;Return
+PrintScreen::
+	Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
+Return
 
 ;Open the downloads folder with Win+j
 #j::Run %USERPROFILE%\Downloads
@@ -574,3 +719,8 @@ Ralt & Right::Send →
 	;U+21D2
 	Ralt & Right::Send ⇒
 #if
+
+#IfWinActive Skype
+Ctrl & Up::Send {Up}{AppsKey}d
+Ctrl & NumpadUp::Send {Up}{AppsKey}d
+#IfWinActive
