@@ -36,6 +36,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+2764
 ::;heart;::❤
 
+;U+1f525
+::;fire;::🔥
+
 ;U+2714
 ::;check;::✔
 
