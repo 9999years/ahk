@@ -30,6 +30,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;`:~;::⍨
 ::;`:>;::⍩
 
+::;?!;::‽
+
 ::smugshrug::¯\_(ツ)_/¯
 ::;shr;::¯\_(ツ)_/¯
 
