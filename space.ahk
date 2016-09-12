@@ -456,7 +456,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;not;::¬
 
-::;plusorminus;::±
 ::;plusminus;::±
 ::;pm;::±
 
@@ -492,8 +491,13 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;derivative;::∂
 ::;deriv;::∂
 
+::;integral;::∫
+::;int;::∫
+
 ::;avg;::x̄
 ::;prime;::′
+::;2prime;::″
+::;3prime;::‴
 
 ::;reals;::ℝ
 ::;re;::ℝ
@@ -539,6 +543,13 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;^8;::⁸
 ::;^9;::⁹
 
+::;^+;::⁺
+::;^-;::⁻
+::;^=;::⁼
+::;^(;::⁽
+::;^);::⁾
+::;^n;::ⁿ
+
 
 ::;_0;::₀
 ::;_1;::₁
@@ -550,6 +561,13 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;_7;::₇
 ::;_8;::₈
 ::;_7;::₉
+
+::;_+;::₊
+::;_-;::₋
+::;_=;::₌
+::;_(;::₍
+::;_);::₎
+::;_n;::ₙ
 
 #if ;end shift block
 
