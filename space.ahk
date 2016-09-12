@@ -551,6 +551,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;^(;::⁽
 ::;^);::⁾
 ::;^n;::ⁿ
+::;^x;::ˣ
 
 
 ::;_0;::₀
@@ -570,6 +571,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;_(;::₍
 ::;_);::₎
 ::;_n;::ₙ
+::;_x;::ₓ
 
 ::;nul;::␀ ;Null
 ::;soh;::␁ ;Start of Heading
