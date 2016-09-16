@@ -446,6 +446,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;infty;::∞
 ::;inf;::∞
 
+::;of;::∘
+
 ::;alef;::ℵ
 
 ::;f;::ƒ
