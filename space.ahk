@@ -617,19 +617,14 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;===ACTIONS===
 
-PrintScreen::
-	Run, C:\Program Files (x86)\Gyazo\Gyazowin.exe
-Return
-
 ;Open the downloads folder with Win+j
 #j::Run %USERPROFILE%\Downloads
 
 ;Open Powershell with Win+f
 #f::Send ^l powershell {enter}
 
-;I don't know what these lines were supposed to do
-;so I commented them out. I hope this doesn't break
-;anything
+;I don't know what these lines were supposed to do so I commented them out. I
+;hope this doesn't break anything
 ;Send !d
         ;ControlGetText Path , Edit1
         ;Send {Enter}
