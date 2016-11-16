@@ -20,6 +20,14 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;fp5;::🏾
 ::;fp6;::🏿
 
+;===CURRENCY===
+
+::;yen;::¥
+::;euro;::€
+::;rupee;::₹
+::;cent;::¢
+::;won;::₩
+
 ;===MISC===
 
 :C:;`:O;::⍥
