@@ -33,3 +33,7 @@ NumpadDel & 9::Send {F9}
 NumpadDel & 0::Send {F10}
 NumpadDel & -::Send {F11}
 NumpadDel & =::Send {F12}
+
+#if GetKeyState("Ctrl","P")
+	NumpadDel & p::Send ^{PrintScreen}
+#if ;endif ctrl
