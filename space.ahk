@@ -181,6 +181,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+1f481
 ::;petty;::💁
 
+;U+1f933
+::;selfie;::🤳
+
 ;U+1f629
 ;im sorry this is all i can remember
 ::;dick;::😩
