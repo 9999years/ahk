@@ -1,4 +1,7 @@
-SendMode, Input ; Recommended for new scripts due to its superior speed and reliability. SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+SendMode, Input
+; Recommended for new scripts due to its superior speed and reliability.
+;SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+
 #SingleInstance force
 
 ;capslock is mapped to numpad delete for pok3r bindings
