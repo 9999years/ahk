@@ -399,7 +399,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;ogonek;::̨
 
 ;yeah
-::;pho;::ở
+::;pho;::phở
 
 ;kinda!
 ::;ae;::æ
@@ -626,6 +626,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;sp;::␠ ;Space
 ::;del;::␡ ;Delete
 
+::;slash;::╱
+
 #Hotstring 0
 
 ;===ACTIONS===
@@ -658,29 +660,6 @@ RShift & Pause::Send {Media_Prev}
 Ralt & Enter::Send {NumpadEnter}
 
 ;===MISC SYMBOLS===
-
-#if GetKeyState("Shift","P")
-	;double dagger
-	;u+2021
-	Ralt & d::Send ‡
-
-	;em space
-	;u+2003
-	Ralt & m::Send {U+2003}
-
-	;en space
-	;u+2002
-	Ralt & n::Send {U+2002}
-
-	;neq
-	;u+2260
-	Ralt & =::Send ≠
-
-	;guillemets
-	;u+3008 and u+3009
-	Ralt & <::Send 〈
-	Ralt & >::Send 〉
-#if ; end shift block
 
 ;em dash
 ;U+2014
@@ -772,6 +751,28 @@ Ralt & j::Send {U+200c}
 ;U+0009
 Ralt & b::Send {U+0009}
 
+#if GetKeyState("Shift","P")
+	;double dagger
+	;u+2021
+	Ralt & d::Send ‡
+
+	;em space
+	;u+2003
+	Ralt & m::Send {U+2003}
+
+	;en space
+	;u+2002
+	Ralt & n::Send {U+2002}
+
+	;neq
+	;u+2260
+	Ralt & =::Send ≠
+
+	;guillemets
+	;u+3008 and u+3009
+	Ralt & <::Send 〈
+	Ralt & >::Send 〉
+#if ; end shift block
 
 ;===DIACRITICS===
 Ralt & g::Send {U+0300} ; gravè
