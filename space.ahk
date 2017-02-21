@@ -377,7 +377,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;macron;::̄
 ::;breve;::̆
 ::;dotabove;::̇
-::;diaresis;::̈
+::;diaeresis;::̈
 ::;hookabove;::̉
 ::;ringabove;::̊
 ::;caron;::̌
@@ -694,8 +694,8 @@ Ralt & ?::Send ·
 
 ;leq and geq
 ;U+2264 u+2265
-Ralt & ,::Send ≤
-Ralt & .::Send ≥
+Ralt & <::Send ≤
+Ralt & >::Send ≥
 
 ;plus minus
 ;U+00b1
