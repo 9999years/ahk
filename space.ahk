@@ -377,7 +377,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;macron;::̄
 ::;breve;::̆
 ::;dotabove;::̇
-::;diaresis;::̈
+::;diaeresis;::̈
 ::;hookabove;::̉
 ::;ringabove;::̊
 ::;caron;::̌
@@ -399,7 +399,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;ogonek;::̨
 
 ;yeah
-::;pho;::ở
+::;pho;::phở
 
 ;kinda!
 ::;ae;::æ
@@ -626,6 +626,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;sp;::␠ ;Space
 ::;del;::␡ ;Delete
 
+::;slash;::╱
+
 #Hotstring 0
 
 ;===ACTIONS===
@@ -661,6 +663,7 @@ Ralt & Backspace::Send {Browser_Back}
 
 ;===MISC SYMBOLS===
 
+<<<<<<< HEAD
 #if GetKeyState("Shift","P")
 	Ralt & Backspace::Send {Browser_Forward}
 	;double dagger
@@ -727,8 +730,8 @@ Ralt & ?::Send ·
 
 ;leq and geq
 ;U+2264 u+2265
-Ralt & ,::Send ≤
-Ralt & .::Send ≥
+Ralt & <::Send ≤
+Ralt & >::Send ≥
 
 ;plus minus
 ;U+00b1
@@ -783,7 +786,6 @@ Ralt & j::Send {U+200c}
 ;tab
 ;U+0009
 Ralt & b::Send {U+0009}
-
 
 ;===DIACRITICS===
 Ralt & g::Send {U+0300} ; gravè
