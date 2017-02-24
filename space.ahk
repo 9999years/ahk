@@ -143,38 +143,38 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;single lines
 
 ;U+2500
-::;horizontal;::─
+::;bar;::─
 
 ;U+2502
-::;vertical;::│
+::;pipe;::│
 
 ;U+250c
-::;topleft;::┌
+::;tl;::┌
 
 ;U+2510
-::;topright;::┐
+::;tr;::┐
 
 ;U+2514
-::;bottomleft;::└
+::;bl;::└
 
 ;U+2518
-::;bottomright;::┘
+::;br;::┘
 
 ;U+251c
-::;3wayright;::├
+::;3r;::├
 
 ;U+2524
-::;3wayleft;::┤
+::;3l;::┤
 
 ;U+252c
-::;3waydown;::┬
+::;3d;::┬
 
 ;U+2534
-::;3wayup;::┴
+::;3u;::┴
 
 ;U+253c
 ::;cross;::┼
-::;4way;::┼
+::;4;::┼
 
 ;===PEOPLE===
 
@@ -657,9 +657,12 @@ RShift & Pause::Send {Media_Prev}
 
 Ralt & Enter::Send {NumpadEnter}
 
+Ralt & Backspace::Send {Browser_Back}
+
 ;===MISC SYMBOLS===
 
 #if GetKeyState("Shift","P")
+	Ralt & Backspace::Send {Browser_Forward}
 	;double dagger
 	;u+2021
 	Ralt & d::Send ‡
@@ -680,6 +683,15 @@ Ralt & Enter::Send {NumpadEnter}
 	;u+3008 and u+3009
 	Ralt & <::Send 〈
 	Ralt & >::Send 〉
+
+	;U+21D1
+	Ralt & Up::Send ⇑
+	;U+21D0
+	Ralt & Left::Send ⇐
+	;U+21D3
+	Ralt & Down::Send ⇓
+	;U+21D2
+	Ralt & Right::Send ⇒
 #if ; end shift block
 
 ;em dash
@@ -862,17 +874,6 @@ Ralt & Right::Send →
 	Ralt & Left::Send {bs}⇔
 	;U+21D8
 	Ralt & Down::Send {bs}⇘
-#if
-
-#if GetKeyState("Shift","P")
-	;U+21D1
-	Ralt & Up::Send ⇑
-	;U+21D0
-	Ralt & Left::Send ⇐
-	;U+21D3
-	Ralt & Down::Send ⇓
-	;U+21D2
-	Ralt & Right::Send ⇒
 #if
 
 #IfWinActive Skype
