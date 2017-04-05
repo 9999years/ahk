@@ -126,6 +126,12 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;horrible;::ಠ益ಠ
 
+;U+1f3b6
+::;music;::🎶
+
+;U+1f52b
+::;gun;::🔫
+
 ;===BOX DRAWING===
 
 ;U+2588
