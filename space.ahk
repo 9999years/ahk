@@ -532,10 +532,10 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;or;::∨
 ::;xor;::⊻
 
-::;elem;::∈
-::;nelelm;::∉
+::;in;::∈
+::;notin;::∉
 ::;member;::∋
-::;nmember;::∌
+::;notmember;::∌
 
 ::;sum;::∑
 
