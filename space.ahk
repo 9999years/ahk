@@ -410,6 +410,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;kinda!
 ::;ae;::æ
 
+::;sz;::ß
+
 ;===GREEK===
 ::;alpha;::α
 ::;beta;::β
