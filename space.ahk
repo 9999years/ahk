@@ -77,6 +77,10 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;U+2b50
 ::;star;::⭐
 
+;U+1f4a5
+::;pow;::💥
+::;explosion;::💥
+
 ;U+1f320
 ::;shootingstar;::🌠
 
@@ -409,8 +413,17 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;kinda!
 ::;ae;::æ
-
+::;ao;::ꜵ
+::;fi;::ﬁ
+::;fl;::ﬂ
+::;st;::ﬆ
+::;oe;::œ
+::;ts;::ʦ
+::;ue;::ᵫ
+::;et;::🙰
 ::;sz;::ß
+
+::;o";::ö
 
 ;===GREEK===
 ::;alpha;::α
