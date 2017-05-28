@@ -485,6 +485,11 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;of;::∘
 
+::;Z;::ℤ
+::;R;::ℝ
+::;Q;::ℚ
+::;N;::ℕ
+
 ::;alef;::ℵ
 
 ::;f;::ƒ
