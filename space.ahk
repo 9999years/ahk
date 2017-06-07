@@ -477,6 +477,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;Omega;::Ω
 
 ;===MATH===
+::;ceil;::⌈⌉{Left}
+::;floor;::⌊⌋{Left}
+
 ::;infinity;::∞
 ::;infty;::∞
 ::;inf;::∞
@@ -516,6 +519,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;ne;::≠
 ::;le;::≤
 ::;ge;::≥
+
+::;:=;::≔
+::;coloneq;::≔
 
 ::;identical;::≡
 ::;equivalent;::≡
