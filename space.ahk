@@ -695,7 +695,6 @@ Ralt & Backspace::Send {Browser_Back}
 
 ;===MISC SYMBOLS===
 
-<<<<<<< HEAD
 #if GetKeyState("Shift","P")
 	Ralt & Backspace::Send {Browser_Forward}
 	;double dagger
