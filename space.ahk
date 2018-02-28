@@ -71,41 +71,29 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;shootingstar;::🌠
 
 ::;mute;::🔇
-
 ::;no;::🚫
-
 ::;soon;::😜
-
 ::;lock;::🔒
-
 ::;wavy;::〰
-
 ::;sparkle;::✨
-
 ::;eyes;::👀
-
 ::;100;::💯
-
 ::;poll;::📊
-
 ::;skull;::💀
 
 ::;water;::💦
 ::;sweat;::💦
-
 ::;thirst;::😩
-
 ::;eggplant;::🍆
 
 ::;seriously;::ಠ_ಠ
-
 ::;spicy;::ಥ_ಥ
-
 ::;horrible;::ಠ益ಠ
 
 ::;music;::🎶
-
 ::;gun;::🔫
+::;party;::🎉
+::;confetti;::🎊
 
 ;===BOX DRAWING===
 
@@ -298,7 +286,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;hookabove;::̉
 ::;ringabove;::̊
 ::;caron;::̌
-::;verticallineabove;::̍
+::;vertabove;::̍
 ::;candrabindu;::̐
 ::;invertedbreve;::̑
 ::;turnedcommaabove;::̒
@@ -337,7 +325,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;beta;::β
 ::;gamma;::γ
 ::;delta;::δ
-::;epislon;::ε
+::;epsilon;::ε
 ::;zeta;::ζ
 ::;eta;::η
 ::;theta;::θ
@@ -658,7 +646,7 @@ RAlt & t::Send ™
 RAlt & 0::Send °
 
 ;mid dot
-Ralt & ?::Send ·
+Ralt & ?::Send •
 
 ;leq and geq
 ;U+2264 u+2265
