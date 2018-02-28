@@ -1,3 +1,5 @@
+Suspend
+
 Lshift & Rshift::Suspend
 
 f::e

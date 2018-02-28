@@ -39,7 +39,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;?!;::‽
 
-::smugshrug::¯\_(ツ)_/¯
 ::;shr;::¯\_(ツ)_/¯
 
 ::;heart;::❤
@@ -61,6 +60,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;dog;::🐶
 
+::;cat;::🐈
+
 ::;egg;::🥚
 
 ::;star;::⭐
@@ -76,6 +77,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;lock;::🔒
 ::;wavy;::〰
 ::;sparkle;::✨
+::;party;::🎉
 ::;eyes;::👀
 ::;100;::💯
 ::;poll;::📊
@@ -372,11 +374,11 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;Omega;::Ω
 
 ;===MATH===
+::;del;::∇
+
 ::;ceil;::⌈⌉{Left}
 ::;floor;::⌊⌋{Left}
 
-::;infinity;::∞
-::;infty;::∞
 ::;inf;::∞
 
 ::;i;::𝑖
@@ -392,15 +394,12 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;f;::ƒ
 
-::;forall;::∀
 ::;all;::∀
-::;every;::∀
 
 ::;exists;::∃
 
 ::;not;::¬
 
-::;plusminus;::±
 ::;pm;::±
 
 ::;therefore;::∴
@@ -418,8 +417,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;:=;::≔
 ::;coloneq;::≔
 
-::;identical;::≡
-::;equivalent;::≡
+::;id;::≡
 
 ::;sub;::⊂
 ::;nsub;::⊄
@@ -519,39 +517,10 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;_x;::ₓ
 
 ::;nul;::␀ ;Null
-::;soh;::␁ ;Start of Heading
-::;stx;::␂ ;Start of Text
-::;etx;::␃ ;End of Text
-::;eot;::␄ ;End of Transmission
-::;enq;::␅ ;Enquiry
-::;ack;::␆ ;Acknowledgement
-::;bel;::␇ ;Bell
 ::;bs;::␈ ;Backspace
-::;ht;::␉ ;Horizontal Tab
 ::;lf;::␊ ;Line Feed
-::;vt;::␋ ;Vertical Tab
 ::;ff;::␌ ;Form Feed
 ::;cr;::␍ ;Carriage Return
-::;so;::␎ ;Shift Out
-::;si;::␏ ;Shift In
-::;dle;::␐ ;Data Link Escape
-::;dc1;::␑ ;Device Control 1 (often XON)
-::;dc2;::␒ ;Device Control 2
-::;dc3;::␓ ;Device Control 3 (often XOFF)
-::;dc4;::␔ ;Device Control 4
-::;nak;::␕ ;Negative Acknowledgement
-::;syn;::␖ ;Synchronous Idle
-::;etb;::␗ ;End of Transmission Block
-::;can;::␘ ;Cancel
-::;em;::␙ ;End of Medium
-::;sub;::␚ ;Substitute
-::;esc;::␛ ;Escape
-::;fs;::␜ ;File Separator
-::;gs;::␝ ;Group Separator
-::;rs;::␞ ;Record Separator
-::;us;::␟ ;Unit Separator
-::;sp;::␠ ;Space
-::;del;::␡ ;Delete
 
 ::;slash;::╱
 
@@ -645,7 +614,7 @@ RAlt & t::Send ™
 ;degree sign
 RAlt & 0::Send °
 
-;mid dot
+;bullet
 Ralt & ?::Send •
 
 ;leq and geq
