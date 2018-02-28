@@ -40,7 +40,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;?!;::‽
 
-::smugshrug::¯\_(ツ)_/¯
 ::;shr;::¯\_(ツ)_/¯
 
 ::;heart;::❤
@@ -74,43 +73,30 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;shootingstar;::🌠
 
 ::;mute;::🔇
-
 ::;no;::🚫
-
 ::;soon;::😜
-
 ::;lock;::🔒
-
 ::;wavy;::〰
-
 ::;sparkle;::✨
-
 ::;party;::🎉
-
 ::;eyes;::👀
-
 ::;100;::💯
-
 ::;poll;::📊
-
 ::;skull;::💀
 
 ::;water;::💦
 ::;sweat;::💦
-
 ::;thirst;::😩
-
 ::;eggplant;::🍆
 
 ::;seriously;::ಠ_ಠ
-
 ::;spicy;::ಥ_ಥ
-
 ::;horrible;::ಠ益ಠ
 
 ::;music;::🎶
-
 ::;gun;::🔫
+::;party;::🎉
+::;confetti;::🎊
 
 ;===BOX DRAWING===
 
@@ -303,7 +289,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;hookabove;::̉
 ::;ringabove;::̊
 ::;caron;::̌
-::;verticallineabove;::̍
+::;vertabove;::̍
 ::;candrabindu;::̐
 ::;invertedbreve;::̑
 ::;turnedcommaabove;::̒
