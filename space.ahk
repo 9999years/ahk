@@ -376,6 +376,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ;===MATH===
 ::;del;::∇
+::;partial;::∂
 
 ::;ceil;::⌈⌉{Left}
 ::;floor;::⌊⌋{Left}
@@ -441,9 +442,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;int;::∫
 
 ::;avg;::x̄
-::;prime;::′
-::;2prime;::″
-::;3prime;::‴
+::;';::′
+::;'';::″
+::;''';::‴
 
 ::;reals;::ℝ
 ::;re;::ℝ
