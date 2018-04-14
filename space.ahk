@@ -418,7 +418,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;ge;::≥
 
 ::;:=;::≔
-::;coloneq;::≔
 
 ::;id;::≡
 
@@ -458,6 +457,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;notin;::∉
 ::;member;::∋
 ::;notmember;::∌
+
+::;mapsto;::↦
 
 ::;sum;::∑
 
