@@ -85,7 +85,7 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;skull;::💀
 
 ::;water;::💦
-::;sweat;::💦
+::;sweat;::😅
 ::;thirst;::😩
 ::;eggplant;::🍆
 
