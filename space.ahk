@@ -40,6 +40,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;?!;::‽
 
+::;cmd;::⌘
+
 ::;shr;::¯\_(ツ)_/¯
 
 ::;heart;::❤
@@ -88,6 +90,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;sweat;::😅
 ::;thirst;::😩
 ::;eggplant;::🍆
+
+::;horny;::😩💦
 
 ::;seriously;::ಠ_ಠ
 ::;spicy;::ಥ_ಥ
@@ -323,6 +327,9 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;sz;::ß
 
 ::;o";::ö
+
+::;rtl;::‏
+::;ltr;::‎
 
 ;===GREEK===
 ::;alpha;::α
