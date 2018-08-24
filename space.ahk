@@ -22,11 +22,11 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;===CURRENCY===
 
 ::;yen;::¥
-::;euro;::€
-::;rupee;::₹
-::;cent;::¢
+::;euros;::€
+::;rupees;::₹
+::;cents;::¢
 ::;won;::₩
-::;pound;::£
+::;pounds;::£
 
 ;===MISC===
 
@@ -39,35 +39,34 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;`:>;::⍩
 
 ::;?!;::‽
-
 ::;cmd;::⌘
-
+::;sharp;::♯
 ::;shr;::¯\_(ツ)_/¯
 
-::;heart;::❤
-
-::;fire;::🔥
-
 ::;check;::✔
-
 ::;x;::✘
-
 ::;emptycheck;::☐
 ::;checkempty;::☐
-
 ::;ballotcheck;::☑
-
 ::;ballotx;::☒
 
 ::;circ;::○
 
+;section sign
+::;s;::§
+
+::;lquot;::❝
+::;rquot;::❞
+
+
+;===EMOJI===
+
 ::;dog;::🐶
-
 ::;cat;::🐈
-
 ::;egg;::🥚
-
 ::;star;::⭐
+::;heart;::❤
+::;fire;::🔥
 
 ::;pow;::💥
 ::;explosion;::💥
@@ -214,6 +213,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;eyeroll;::🙄
 
+::;angel;::😇
+
 ;===CAT FACES===
 
 ;U+1f63a--U+1f63e
@@ -262,9 +263,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;ok;::👌
 
-::;hope;::🤞
-::;wish;::🤞
-::;crossedfingers;::🤞
 ::;fingerscrossed;::🤞
 
 ::;wave;::👋
@@ -603,24 +601,12 @@ Ralt & Backspace::Send {Browser_Back}
 	Ralt & Right::Send ⇒
 #if ; end shift block
 
-;em dash
-RAlt & m::Send —
-
-;en dash
-RAlt & n::Send –
-
 ;quotes
 ;U+2018--u+201c
 RAlt & `;::Send “
 RAlt & '::Send ”
 RAlt & [::Send ‘
 RAlt & ]::Send ’
-
-;registered trademark
-RAlt & r::Send ®
-
-;tm
-RAlt & t::Send ™
 
 ;degree sign
 RAlt & 0::Send °
@@ -639,14 +625,27 @@ Ralt & -::Send ±
 ;approx equal to
 Ralt & =::Send ≈
 
+;===letters===
+
 ;copyright
 Ralt & c::Send ©
 
 ;dagger
 Ralt & d::Send †
 
-;heart bullet / fleuron / hedera 
-Ralt & h::Send ❧
+;ellipsis
+Ralt & e::Send …
+
+Ralt & h::Send 😍
+
+;zwnj
+Ralt & j::Send {U+200c}
+
+;em dash
+RAlt & m::Send —
+
+;en dash
+RAlt & n::Send –
 
 ;number sign
 Ralt & o::Send №
@@ -654,31 +653,19 @@ Ralt & o::Send №
 ;pilcrow
 Ralt & p::Send ¶
 
-;section sign
-Ralt & s::Send §
+;registered trademark
+RAlt & r::Send ®
 
-;ref mark
-Ralt & z::Send ※
-
-;ellipsis
-Ralt & e::Send …
+;tm
+RAlt & t::Send ™
 
 ;multiplication x
 Ralt & x::Send ×
-
-;whitespace:
-
-;zwnj
-Ralt & j::Send {U+200c}
-
-;tab
-Ralt & b::Send {U+0009}
 
 ;===DIACRITICS===
 Ralt & g::Send {U+0300} ; gravè
 Ralt & a::Send {U+0301} ; acuté
 Ralt & u::Send {U+0308} ; diaresis / umalaüt
-Ralt & f::Send {U+0327} ; cedilla̧
 
 ;ARROWS
 ;Single arrows
@@ -760,8 +747,3 @@ Ralt & Right::Send →
 	;U+21D8
 	Ralt & Down::Send {bs}⇘
 #if
-
-#IfWinActive Skype
-Ctrl & Up::Send {Up}{AppsKey}d
-Ctrl & NumpadUp::Send {Up}{AppsKey}d
-#IfWinActive
