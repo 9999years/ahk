@@ -22,11 +22,11 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ;===CURRENCY===
 
 ::;yen;::¥
-::;euros;::€
-::;rupees;::₹
-::;cents;::¢
+::;euro;::€
+::;rupee;::₹
+::;cent;::¢
 ::;won;::₩
-::;pounds;::£
+::;pound;::£
 
 ;===MISC===
 
@@ -177,8 +177,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 ::;tear;::😢
 
 ::;cry;::😭
-::;crying;::😭
-::;crying;::😭
 
 ::;upset;::😟
 
@@ -213,8 +211,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;eyeroll;::🙄
 
-::;angel;::😇
-
+==== BASE ====
+==== BASE ====
 ;===CAT FACES===
 
 ;U+1f63a--U+1f63e
@@ -326,9 +324,8 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;o";::ö
 
-::;rtl;::‏
-::;ltr;::‎
-
+==== BASE ====
+==== BASE ====
 ;===GREEK===
 ::;alpha;::α
 ::;beta;::β
@@ -666,6 +663,7 @@ Ralt & x::Send ×
 Ralt & g::Send {U+0300} ; gravè
 Ralt & a::Send {U+0301} ; acuté
 Ralt & u::Send {U+0308} ; diaresis / umalaüt
+Ralt & f::Send {U+0304} ; macron; “flat”
 
 ;ARROWS
 ;Single arrows
