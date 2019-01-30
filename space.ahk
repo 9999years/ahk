@@ -211,8 +211,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;eyeroll;::🙄
 
-==== BASE ====
-==== BASE ====
 ;===CAT FACES===
 
 ;U+1f63a--U+1f63e
@@ -324,8 +322,6 @@ SendMode, Input ; Recommended for new scripts due to its superior speed and reli
 
 ::;o";::ö
 
-==== BASE ====
-==== BASE ====
 ;===GREEK===
 ::;alpha;::α
 ::;beta;::β
