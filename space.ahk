@@ -1,580 +1,254 @@
-﻿;AHK scripts need a BOM to handle UTF-8 properly. Keep that in mind.
-;I normally hate to code in UTF-8, but AHK’s {U+xxxx} method only
-;supports the BMP, translating {U+1f914} to U+f914
-;So that's where we are, as a people, I guess.
+﻿; NOTE: AHK needs a BOM to detect UTF-8.
+; NOTE: AHK’s {U+xxxx} method only supports the BMP; it'll treat {U+1f914} as
+; U+f914.
 
-SendMode, Input ; Recommended for new scripts due to its superior speed and reliability. SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+; Recommended for new scripts due to its superior speed and reliability.
+SendMode, Input
 
 #SingleInstance force
 
-#Hotstring O
-;#Hotstring EndChars `n `t
-
-;Fitzpatrick 1--6 (lightest to darkest)
-;1 and 2 are identical
-::;fp1;::🏻
-::;fp2;::🏻
-::;fp3;::🏼
-::;fp4;::🏽
-::;fp5;::🏾
-::;fp6;::🏿
-
-;===CURRENCY===
-
-::;yen;::¥
-::;euro;::€
-::;rupee;::₹
-::;cent;::¢
-::;won;::₩
-::;pound;::£
-
-;===MISC===
-
-:C:;`:O;::⍥
-:C:;`:o;::⍤
-::;`:T;::⍡
-::;`:D;::⍢
-::;`:*;::⍣
-::;`:~;::⍨
-::;`:>;::⍩
-
-::;?!;::‽
-::;cmd;::⌘
-::;sharp;::♯
-::;shr;::¯\_(ツ)_/¯
-
-::;check;::✔
-::;x;::✘
-::;emptycheck;::☐
-::;checkempty;::☐
-::;ballotcheck;::☑
-::;ballotx;::☒
-
-::;circ;::○
-
-;section sign
-::;s;::§
-
-::;lquot;::❝
-::;rquot;::❞
-
-
-;===EMOJI===
-
-::;dog;::🐶
-::;cat;::🐈
-::;egg;::🥚
-::;star;::⭐
-::;heart;::❤
-::;fire;::🔥
-
-::;pow;::💥
-::;explosion;::💥
-
-::;shootingstar;::🌠
-
-::;mute;::🔇
-::;no;::🚫
-::;soon;::😜
-::;lock;::🔒
-::;wavy;::〰
-::;sparkle;::✨
-::;party;::🎉
-::;eyes;::👀
-::;100;::💯
-::;poll;::📊
-::;skull;::💀
-
-::;squirt;::💦
-::;sweat;::😅
-::;thirst;::😩
-::;eggplant;::🍆
-
-::;horny;::😩💦
-
-::;seriously;::ಠ_ಠ
-::;spicy;::ಥ_ಥ
-::;horrible;::ಠ益ಠ
-
-::;music;::🎶
-::;gun;::🔫
-::;party;::🎉
-::;confetti;::🎊
-::;warning;::⚠️
-
-;===BOX DRAWING===
-
-::;fullblock;::█
-
-::;lightshade;::░
-
-::;mediumshade;::▒
-
-::;darkshade;::▓
-
-;single lines
-
-::;bar;::─
-
-::;pipe;::│
-
-::;tl;::┌
-
-::;tr;::┐
-
-::;bl;::└
-
-::;br;::┘
-
-::;3r;::├
-
-::;3l;::┤
-
-::;3d;::┬
-
-::;3u;::┴
-
-::;cross;::┼
-::;4;::┼
-
-;===PEOPLE===
-
-::;petty;::💁
-
-::;selfie;::🤳
-
-;im sorry this is all i can remember
-::;dick;::😩
-
-::;shrug;::🤷
-
-::;raisehand;::🙋
-
-::;facepalm;::🤦
-
-;===FACES===
-
-::;upsidedown;::🙃
-
-::;drool;::🤤
-
-::;wink;::😉
-
-::;smile;::😊
-
-::;grin;::😄
-
-::;happy;::🙂
-::;smile2;::🙂
-
-::;hmm;::🤔
-::;hm;::🤔
-
-::;sunglasses;::😎
-
-::;scared;::😯
-
-::;tear;::😢
-
-::;cry;::😭
-
-::;upset;::😟
-
-::;upset2;::😦
-
-::;upset3;::😧
-
-::;upset4;::😨
-::;shock;::😨
-
-::;angry;::😠
-
-::;grimace;::😬
-
-::;dizzy;::😵
-::;dead;::😵
-
-::;neutral;::😐
-
-::;blank;::😶
-
-::;hearteyes;::😍
-
-::;smug;::😏
-
-::;unimpressed;::😒
-::;unamused;::😒
-
-::;sad;::😔
-
-::;blush;::😳
-
-::;eyeroll;::🙄
-
-;===CAT FACES===
-
-;U+1f63a--U+1f63e
-::;catsmile;::😺
-::;catgrin;::😸
-::;catlaugh;::😹
-
-::;cathearteyes;::😻
-::;catlove;::😻
-
-::;catkiss;::😽
-::;catfear;::🙀
-
-::;cattear;::😿
-::;catcry;::😿
-
-::;catanger;::😾
-::;catpout;::😾
-
-;===HANDS===
-
-::;pray;::🙏
-
-::;bless;::🙌
-
-::;clap;::👏
-
-::;pointleft;::👈
-
-::;pointright;::👉
-
-::;pointup;::☝
-
-::;pointup2;::👆
-
-::;pointdown;::👇
-
-::;fuckyou;::🖕
-::;middlefinger;::🖕
-
-::;peace;::✌
-
-::;thumbs;::👍
-
-::;thumbsdown;::👎
-
-::;ok;::👌
-
-::;fingerscrossed;::🤞
-
-::;wave;::👋
-
-::;rock;::🤘
-::;devilhorns;::🤘
-
-::;callme;::🤙
-
-;===END EMOJI BLOCK===
-
-;===DIACRITICS===
-;http://unicode.org/charts/PDF/U0300.pdf
-#Hotstring ?
-
-::;acute;::̀
-::;grave;::́
-
-::;circumflex;::̂
-::;hat;::̂
-
-::;tilde;::̃
-::;macron;::̄
-::;breve;::̆
-::;dotabove;::̇
-::;diaeresis;::̈
-::;hookabove;::̉
-::;ringabove;::̊
-::;caron;::̌
-::;vertabove;::̍
-::;candrabindu;::̐
-::;invertedbreve;::̑
-::;turnedcommaabove;::̒
-::;commaabove;::̓
-::;reversedcommaabove;::̔
-::;commaaboveright;::̕
-::;gravebelow;::̖
-::;acutebelow;::̗
-::;horn;::̛
-::;dotbelow;::̣
-::;diaresisbelow;::̤
-::;ringbelow;::̥
-::;commabelow;::̦
-::;cedilla;::̧
-::;ogonek;::̨
-
-;yeah
-::;pho;::phở
-
-;kinda!
-::;ae;::æ
-::;ao;::ꜵ
-::;fi;::ﬁ
-::;fl;::ﬂ
-::;st;::ﬆ
-::;oe;::œ
-::;ts;::ʦ
-::;ue;::ᵫ
-::;et;::🙰
-::;sz;::ß
-
-::;o";::ö
-
-;===GREEK===
-::;alpha;::α
-::;beta;::β
-::;gamma;::γ
-::;delta;::δ
-::;epsilon;::ε
-::;zeta;::ζ
-::;eta;::η
-::;theta;::θ
-::;iota;::ι
-::;kappa;::κ
-::;lambda;::λ
-::;mu;::μ
-::;nu;::ν
-::;xi;::ξ
-::;omicron;::ο
-::;pi;::π
-::;rho;::ρ
-::;sigma;::σ
-::;tau;::τ
-::;upsilon;::υ
-::;phi;::φ
-::;chi;::χ
-::;psi;::ψ
-::;omega;::ω
-
-::;Alpha;::Α
-::;Beta;::Β
-::;Gamma;::Γ
-::;Delta;::Δ
-::;Epislon;::Ε
-::;Zeta;::Ζ
-::;Eta;::Η
-::;Theta;::Θ
-::;Iota;::Ι
-::;Kappa;::Κ
-::;Lambda;::Λ
-::;Mu;::Μ
-::;Nu;::Ν
-::;Xi;::Ξ
-::;Omicron;::Ο
-::;Pi;::Π
-::;Rho;::Ρ
-::;Sigma;::Σ
-::;Tau;::Τ
-::;Upsilon;::Υ
-::;Phi;::Φ
-::;Chi;::Χ
-::;Psi;::Ψ
-::;Omega;::Ω
-
-;===MATH===
-::;del;::∇
-::;partial;::∂
-
-::;ceil;::⌈⌉{Left}
-::;floor;::⌊⌋{Left}
-
-::;inf;::∞
-
-::;i;::𝑖
-
-::;of;::∘
-
-::;Z;::ℤ
-::;R;::ℝ
-::;Q;::ℚ
-::;N;::ℕ
-
-::;alef;::ℵ
-
-::;f;::ƒ
-
-::;all;::∀
-
-::;exists;::∃
-
-::;not;::¬
-
-::;pm;::±
-
-::;therefore;::∴
-
-::;because;::∵
-::;bc;::∵
-
-::;intersection;::⋂
-::;union;::⋃
-
-::;ne;::≠
-::;le;::≤
-::;ge;::≥
-
-::;:=;::≔
-
-::;equiv;::≡
-
-::;sub;::⊂
-::;nsub;::⊄
-::;sup;::⊃
-::;nsup;::⊅
-
-::;sqrt;::√
-::;angle;::∠
-::;mangle;::∡
-::;perp;::⊥
-::;dot;::⋅
-
-::;empty;::∅
-::;null;::∅
-
-::;derivative;::∂
-::;deriv;::∂
-
-::;integral;::∫
-::;int;::∫
-
-::;avg;::x̄
-::;';::′
-::;'';::″
-::;''';::‴
-
-::;reals;::ℝ
-::;re;::ℝ
-
-::;and;::∧
-::;or;::∨
-::;xor;::⊻
-
-::;in;::∈
-::;notin;::∉
-::;member;::∋
-::;notmember;::∌
-
-::;mapsto;::↦
-
-::;sum;::∑
-
-::;frac;::⁄
-
-::;1/4;::¼
-::;1/2;::½
-::;3/4;::¾
-::;1/3;::⅓
-::;2/3;::⅔
-::;1/5;::⅕
-::;2/5;::⅖
-::;3/5;::⅗
-::;4/5;::⅘
-::;1/6;::⅙
-::;5/6;::⅚
-::;1/8;::⅛
-::;3/8;::⅜
-::;5/8;::⅝
-::;7/8;::⅞
-
-
-::;^0;::⁰
-::;^1;::¹
-::;^2;::²
-::;^3;::³
-::;^4;::⁴
-::;^5;::⁵
-::;^6;::⁶
-::;^7;::⁷
-::;^8;::⁸
-::;^9;::⁹
-
-::;^+;::⁺
-::;^-;::⁻
-::;^=;::⁼
-::;^(;::⁽
-::;^);::⁾
-::;^n;::ⁿ
-::;^x;::ˣ
-
-
-::;_0;::₀
-::;_1;::₁
-::;_2;::₂
-::;_3;::₃
-::;_4;::₄
-::;_5;::₅
-::;_6;::₆
-::;_7;::₇
-::;_8;::₈
-::;_7;::₉
-
-::;_+;::₊
-::;_-;::₋
-::;_=;::₌
-::;_(;::₍
-::;_);::₎
-::;_n;::ₙ
-::;_x;::ₓ
-
-::;nul;::␀ ;Null
-::;bs;::␈ ;Backspace
-::;lf;::␊ ;Line Feed
-::;ff;::␌ ;Form Feed
-::;cr;::␍ ;Carriage Return
-
-::;slash;::╱
+#Hotstring C  ; case-sensitive
+#Hotstring ?  ; in-word expansion
+#Hotstring *  ; no ending character required
+
+
+; === CURRENCY ===
+::;yen::¥
+::;euro::€
+::;cents::¢
+::;won::₩
+::;pound::£
+
+; === MISC ===
+::;?!::‽
+::;cmd::⌘
+::;sharp::♯
+::;shr::¯\_(ツ)_/¯
+::;lquot::❝
+::;rquot::❞
+
+; === EMOJI ===
+::;dog::🐶
+::;cat::🐈
+::;star::⭐
+::;heart::❤
+::;fire::🔥
+::;pow::💥
+::;explosion::💥
+::;shootingstar::🌠
+::;mute::🔇
+; ::;no:: 🚫
+::;soon::😜
+::;lock::🔒
+::;wavy::〰
+::;sparkle::✨
+; ::;gun:: 🔫
+::;party::🎉
+::;eyes::👀
+::;100::💯
+::;poll::📊
+::;skull::💀
+; ::;squirt:: 💦
+::;sweat::😅
+::;thirst::😩
+::;eggplant::🍆
+::;horny::😩💦
+::;seriously::ಠ_ಠ
+::;spicy::ಥ_ಥ
+::;horrible::ಠ益ಠ
+::;confetti::🎊
+::;warning::⚠️
+::;petty::💁
+::;selfie::🤳
+; im sorry this is all i can remember
+::;dick::😩
+::;raisehand::🙋
+::;facepalm::🤦
+; === FACES ===
+::;upsidedown::🙃
+::;drool::🤤
+::;wink::😉
+
+; ::;grin:: 😄
+::;smile::😊
+::;hm::🤔
+::;sunglasses::😎
+::;scared::😯
+::;tear::😢
+::;cry::😭
+::;shock::😨
+::;angry::😠
+:*0:;grimace::😬
+::;dizzy::😵
+::;dead::😵
+::;neutral::😐
+::;blank::😶
+:*0:;hearteyes::😍
+::;smug::😏
+::;unamused::😒
+::;sad::😔
+::;blush::😳
+::;eyeroll::🙄
+
+; === HANDS ===
+::;pray::🙏
+::;bless::🙌
+::;clap::👏
+::;peace::✌
+::;ok::👌
+::;fingerscrossed::🤞
+::;wave::👋
+::;callme::🤙
+::;tu::👍
+::;td::👎
+; yeah
+::;pho::phở
+; kinda!
+::;ae::æ
+::;oe::œ
+::;sz::ß
+::;o"::ö
+
+; === GREEK ===
+::;ga::α
+::;gb::β
+::;gc::χ
+::;gd::δ
+::;geps::ε
+::;geta::η
+::;gg::γ
+::;gi::ι
+::;gk::κ
+::;gl::λ
+::;gm::μ
+::;gn::ν
+::;gome::ω
+::;gomi::ο
+::;gpi::π
+::;gphi::φ
+::;gpsi::ψ
+::;gr::ρ
+::;gs::σ
+::;gtau::τ
+::;gth::θ
+::;gu::υ
+::;gx::ξ
+::;gz::ζ
+
+::;Ga::Α
+::;Gb::Β
+::;Gc::Χ
+::;Gd::Δ
+::;Geps::Ε
+::;Geta::Η
+::;Gg::Γ
+::;Gi::Ι
+::;Gk::Κ
+::;Gl::Λ
+::;Gm::Μ
+::;Gn::Ν
+::;Gome::Ω
+::;Gomi::Ο
+::;Gphi::Φ
+::;Gpi::Π
+::;Gpsi::Ψ
+::;Gr::Ρ
+::;Gs::Σ
+::;Gtau::Τ
+::;Gth::Θ
+::;Gu::Υ
+::;Gx::Ξ
+::;Gz::Ζ
+
+; === MATH ===
+::;del::∇
+::;ceil::⌈⌉{Left}
+::;floor::⌊⌋{Left}
+::;inf::∞
+::;after::∘
+::;Z::ℤ
+::;R::ℝ
+::;Q::ℚ
+::;N::ℕ
+::;alef::ℵ
+::;all::∀
+::;exists::∃
+::;not::¬
+::;inter::⋂
+::;union::⋃
+::;:=::≔
+::;equiv::≡
+::;sub::⊂
+::;nsub::⊄
+::;sup::⊃
+::;nsup::⊅
+::;sq::√
+::;perp::⊥
+::;es::∅
+::;pd::∂
+:*0:;int::∫
+::;'::′
+::;"::″
+::;and::∧
+::;or::∨
+::;mem::∈
+::;nmem::∉
+::;mapsto::↦
+::;sum::∑
+
+::;^0::⁰
+::;^1::¹
+::;^2::²
+::;^3::³
+::;^4::⁴
+::;^5::⁵
+::;^6::⁶
+::;^7::⁷
+::;^8::⁸
+::;^9::⁹
+
+::;^+::⁺
+::;^-::⁻
+::;^=::⁼
+::;^(::⁽
+::;^)::⁾
+::;^n::ⁿ
+::;^x::ˣ
+
+::;_0::₀
+::;_1::₁
+::;_2::₂
+::;_3::₃
+::;_4::₄
+::;_5::₅
+::;_6::₆
+::;_7::₉
+::;_8::₈
+::;_+::₊
+::;_-::₋
+::;_=::₌
+::;_(::₍
+::;_)::₎
+::;_n::ₙ
+::;_x::ₓ
 
 #Hotstring 0
 
 ;===ACTIONS===
-
-;Open the downloads folder with Win+j
+; Open the downloads folder with Win+j
 #j::Run %USERPROFILE%\Downloads
 
-;Open Powershell with Win+f
-#f::Send ^l powershell {enter}
-
-;I don't know what these lines were supposed to do so I commented them out. I
-;hope this doesn't break anything
-;Send !d
-        ;ControlGetText Path , Edit1
-        ;Send {Enter}
-
-;Win+Left Shift toggles capslock
-#LShift::
-If GetKeyState("CapsLock", "T") = 1
-    SetCapsLockState, AlwaysOff
-Else
-    SetCapsLockState, AlwaysOn
-Return
-
-;Media shortcuts!
+; Media shortcuts!
 Pause::Send {Media_Play_Pause}
 Ralt & Pause::Send {Media_Next}
 RShift & Pause::Send {Media_Prev}
 
 Ralt & Enter::Send {NumpadEnter}
-
+Ralt & i::Send {NumpadInsert}  ; For NVDA
 Ralt & Backspace::Send {Browser_Back}
 
 ;===MISC SYMBOLS===
-
 #if GetKeyState("Shift","P")
-	Ralt & Backspace::Send {Browser_Forward}
-	;double dagger
-	;u+2021
-	Ralt & d::Send ‡
-
-	;em space
-	;u+2003
-	Ralt & m::Send {U+2003}
-
-	;en space
-	;u+2002
-	Ralt & n::Send {U+2002}
-
 	;neq
 	;u+2260
 	Ralt & =::Send ≠
@@ -592,6 +266,8 @@ Ralt & Backspace::Send {Browser_Back}
 	Ralt & Down::Send ⇓
 	;U+21D2
 	Ralt & Right::Send ⇒
+
+	Ralt & ?::Send ⋅  ; Center-dot
 #if ; end shift block
 
 ;quotes
@@ -623,9 +299,6 @@ Ralt & =::Send ≈
 ;copyright
 Ralt & c::Send ©
 
-;dagger
-Ralt & d::Send †
-
 ;ellipsis
 Ralt & e::Send …
 
@@ -654,12 +327,6 @@ RAlt & t::Send ™
 
 ;multiplication x
 Ralt & x::Send ×
-
-;===DIACRITICS===
-Ralt & g::Send {U+0300} ; gravè
-Ralt & a::Send {U+0301} ; acuté
-Ralt & u::Send {U+0308} ; diaresis / umalaüt
-Ralt & f::Send {U+0304} ; macron; “flat”
 
 ;ARROWS
 ;Single arrows
